@@ -1,0 +1,19 @@
+# FILE: configs/beginner/pulldowns/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and more smoothing.
+
+PULLDOWNS_UP_THR: -0.01      # BEGINNER: Doesn't need to extend as high
+PULLDOWNS_DOWN_THR: 0.10     # BEGINNER: Doesn't need to pull as low
+PULLDOWNS_MIN_DOWN_FRAMES: 2
+PULLDOWNS_MIN_UP_FRAMES: 2
+PULLDOWNS_UP_ELBOW_THR: 120.0  # BEGINNER: Wider acceptable elbow angle
+PULLDOWNS_DOWN_ELBOW_THR: 60.0 # BEGINNER: Wider acceptable elbow angle
+PULLDOWNS_AUTO_CALIBRATE: True
+PULLDOWNS_CALIB_FRAMES: 80
+PULLDOWNS_CALIB_MARGIN: 0.03   # BEGINNER: More forgiving calibration
+
+# BEGINNER: More smoothing
+ema_diff_alpha: 0.15
+ema_el_alpha: 0.15
+
+debug: True

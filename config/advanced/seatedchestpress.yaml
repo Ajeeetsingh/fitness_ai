@@ -1,0 +1,33 @@
+# FILE: configs/advanced/seatedchestpress/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a slight hold.
+
+# Strategy
+side_strategy: "min_of_both"
+
+# Core thresholds (ADVANCED: Full range of motion)
+extended_elbow_angle_deg: 165.0
+contracted_elbow_angle_deg: 105.0
+
+# Margin for acceptance (ADVANCED: Tighter margins)
+extended_margin_deg: 10.0
+contracted_margin_deg: 10.0
+
+# Front view thresholds (ADVANCED: Full range of motion)
+front_contracted_dist_ratio: 1.85
+front_extended_dist_ratio: 2.50
+
+# Debounce/stability (ADVANCED: Enforces a slight pause)
+min_extended_frames: 3
+contracted_stable_frames: 3
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing)
+ema_elbow_alpha: 0.6
+
+# Form checks (ADVANCED: Stricter)
+over_extension_max_deg: 170.0
+
+debug: True

@@ -1,0 +1,33 @@
+# Configuration for Russian Twist analyzer
+
+# --- State stability requirements ---
+min_hold_frames: 3            # frames to confirm a twist hold (stability)
+stand_stable_frames: 4        # frames to confirm return to center
+
+# --- Refractory period ---
+refractory_frames: 10         # cooldown before counting next rep
+
+# --- Norm-based thresholds (distances in pixels) ---
+left_twist_threshold: 20.0    # norm_diff >= 20 pixels = definite left twist
+right_twist_threshold: -20.0  # norm_diff <= -20 pixels = definite right twist
+
+# --- Alternative thresholds (absolute distances, rarely used) ---
+max_left_norm: 75.0           # when nose-left_shoulder < 75px = strong left
+max_right_norm: 75.0          # when nose-right_shoulder < 75px = strong right
+min_shoulder_distance: 100.0  # minimum expected shoulder-shoulder distance
+
+# --- Form validation ---
+posture_ratio_min: 0.8        # vertical/horizontal ratio for good posture
+min_nose_hip_distance: 150.0  # minimum distance to ensure proper lean-back
+
+# --- Smoothing factors ---
+ema_norm_alpha: 0.4           # smoothing for norm differences (higher = more responsive)
+ema_posture_alpha: 0.3        # smoothing for posture metrics
+
+# --- Quality filters ---
+min_confidence: 0.5           # minimum keypoint confidence to use
+
+# --- Debug and visualization ---
+debug: false                  # disable verbose console output
+show_thresholds: true         # show threshold lines on overlay
+show_norms: true              # show distance values on overlay

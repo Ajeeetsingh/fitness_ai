@@ -1,0 +1,17 @@
+# FILE: configs/beginner/lunges/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, allows more lean.
+
+# Per-exercise thresholds & behavior
+lunge_down_knee_thr: 110.0   # BEGINNER: Shallower lunge
+lunge_stand_knee_thr: 150.0  # BEGINNER: Less strict "stand"
+lunge_hip_lean_max: 40.0     # BEGINNER: Allows for more forward lean
+
+min_down_frames: 2
+min_up_frames: 2
+
+# BEGINNER: More smoothing
+ema_knee_alpha: 0.3
+ema_hip_alpha: 0.3
+
+debug: true

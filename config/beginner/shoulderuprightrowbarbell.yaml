@@ -1,0 +1,29 @@
+# Configuration for Shoulder Upright Row (Barbell) Analyzer
+
+# --- Core thresholds ---
+min_elbow_angle: 0.0
+max_elbow_angle: 180.0
+rep_tolerance: 15.0
+
+# --- EMA smoothing ---
+ema_alpha: 0.2
+
+# --- FSM settings (tuned to fix undercount issue) ---
+refractory_frames: 6
+min_state_duration_sec: 0.2
+
+# --- Posture & symmetry ---
+max_wrist_height_diff: 15.0
+max_hip_shift: 30.0            # lateral hip shift threshold
+symmetry_threshold_px: 20.0
+symmetry_stable_px: 10.0
+
+# --- Barbell movement thresholds ---
+barbell_height_up_threshold: -50.0   # y-coordinate when barbell is up
+barbell_height_down_threshold: -5.0  # y-coordinate when barbell is down
+
+# --- Keypoint smoothing ---
+frame_smoothing: 3
+
+# --- Debug ---
+debug: false

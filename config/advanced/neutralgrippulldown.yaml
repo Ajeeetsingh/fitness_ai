@@ -1,0 +1,19 @@
+# REP COUNTING IS BASED ON SHOULDER ANGLE (HIP-SHOULDER-WRIST)
+up_shoulder_angle: 140.0      # Angle when arms are fully extended up (start of rep)
+down_shoulder_angle: 75.0       # Angle when bar is pulled to the chest (end of pull)
+up_margin: 15.0
+down_margin: 15.0
+
+# FORM CHECK IS BASED ON TORSO LEAN (KNEE-HIP-SHOULDER ANGLE)
+min_torso_angle: 75.0  # Prevents excessive leaning back.
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# Smoothing (EMAs)
+ema_shoulder_alpha: 0.4
+ema_torso_alpha: 0.4
+
+debug: true

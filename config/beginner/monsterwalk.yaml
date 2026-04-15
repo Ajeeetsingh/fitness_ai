@@ -1,0 +1,41 @@
+# configs/exercises/monster_walk.yaml
+
+# Configuration for Monster Walk analyzer
+
+# --- Step thresholds ---
+step_in_abs: 25.0            # step_in when lateral <= 25
+step_out_abs: 35.0           # step_out when lateral >= 35
+
+# --- Vertical motion detection ---
+min_drop_abs: 8.0            # minimum drop to confirm rep
+drop_frac: 0.20              # fraction of dynamic range
+
+# --- Timing parameters ---
+calibration_seconds: 1.5
+min_distance_seconds: 0.4
+smoothing_window: 2
+ema_step_alpha: 0.4
+
+# --- Sequence logic ---
+sequence:
+  - step_out
+  - step_in
+allow_partial: true
+
+# --- Detection confidence ---
+min_detection_conf: 0.25
+min_valid_points: 4
+
+# --- Hysteresis frame settings ---
+hyst_frames_down: 1
+hyst_frames_floor: 1
+hyst_frames_jump: 1
+
+# --- Refractory period ---
+refractory_frames: 3
+
+# --- Form control ---
+max_shoulder_sway_deg: 5.0    # tighter torso control for form detection
+
+# --- Debug ---
+debug: false

@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Athlete Weekly Workout Plan",
+  "type": "object",
+  "required": ["provided_information", "summary", "weekly_schedule", "metadata"],
+  "properties": {
+    "provided_information": {
+      "type": "object",
+      "required": ["sport", "phase", "minutes"],
+      "properties": {
+        "athlete_id": {"type": ["string", "null"]},
+        "population": {"type": "string", "enum": ["competitive_athlete", "serious_trainee"], "default": "competitive_athlete"},
+        "sport": {"type": "string", "minLength": 1},
+        "phase": {"type": "string", "minLength": 1},
+        "minutes": {"type": "integer", "minimum": 20, "maximum": 180},
+        "experience": {"type": "string", "default": "advanced"},
+        "equipment_list": {"type": "array"},
+        "language": {"type": "string", "default": "en"},
+        "competition_date": {"type": ["string", "null"], "format": "date"},
+        "phase_objectives": {"type": ["string", "null"]},
+        "competition_priority": {"type": ["string", "null"]},
+        "accessory_focus": {"type": ["string", "null"]},
+        "training_block_id": {"type": ["string", "null"]},
+        "injury_history": {"type": ["array", "null"]}
+      }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plan_meta": {
+      "type": "object",
+      "properties": {
+        "plan_type": {"type": "string", "const": "weekly"},
+        "weekly_sessions": {"type": "integer", "minimum": 2, "maximum": 12, "default": 5}
+      }
+    },
+    "microcycle_overview": {
+      "type": "object",
+      "properties": {
+        "session_focus_map": {"type": "object"},
+        "key_metrics_targets": {"type": "object"}
+      }
+    },
+    "weekly_schedule": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^day_[1-7]$": {
+          "type": "object",
+          "required": ["warmup", "main_session", "cooldown"],
+          "properties": {
+            "warmup": {"type": "object", "required": ["duration_minutes", "exercises"]},
+            "main_session": {"type": "object", "required": ["duration_minutes", "exercises"]},
+            "cooldown": {"type": "object", "required": ["duration_minutes", "exercises"]}
+          }
+        }
+      }
+    },
+    "strength_conditioning": {"type": "object"},
+    "mobility_prehab": {"type": "object"},
+    "recovery_nutrition": {"type": "object"},
+    "progression_taper": {"type": "object"},
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "generated_by": {"type": "string"},
+        "auto_filled_fields": {"type": "array", "maxItems": 6}
+      }
+    }
+  }
+}
+

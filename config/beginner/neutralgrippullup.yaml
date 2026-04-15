@@ -1,0 +1,23 @@
+# FILE: configs/beginner/neutralgrippullup/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more body swing.
+
+# Rep counting thresholds (BEGINNER: Smaller range of motion)
+up_elbow_angle: 70.0      # BEGINNER: Doesn't need to pull as high
+down_elbow_angle: 150.0   # BEGINNER: Doesn't need to extend to a full dead hang
+up_margin: 25.0
+down_margin: 25.0
+
+# Form check (BEGINNER: Allows for more kipping/swinging)
+min_body_line_angle: 130.0
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_elbow_alpha: 0.2
+ema_body_line_alpha: 0.2
+
+debug: true

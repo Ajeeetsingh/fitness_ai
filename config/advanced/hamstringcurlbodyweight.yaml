@@ -1,0 +1,70 @@
+# Hamstring Curl (Bodyweight Variation - Athlete)
+# Strict Nordic curl or floor curl standards.
+
+ema_knee_alpha: 0.18
+ema_ankle_alpha: 0.20
+ema_lower_leg_alpha: 0.20
+ema_hip_alpha: 0.18
+
+variation: bodyweight
+
+extended_deg: 165.0
+contracted_deg: 55.0
+min_rom_deg: 95.0
+optimal_rom_deg: 120.0
+
+extended_threshold: 165.0
+contracted_threshold: 55.0
+min_rom_pixels: 50.0
+min_knee_rom_deg: 95.0
+refractory_frames: 15
+init_frames_wait: 6
+mid_range_angle_threshold: 110.0
+
+bilateral_movement: true
+track_legs_separately: false
+allow_alternating_reps: false
+symmetry_check: true
+symmetry_tolerance_deg: 10.0
+max_angle_asymmetry: 12.0
+max_lower_leg_asymmetry: 18.0
+max_timing_asymmetry_sec: 0.15
+
+lower_leg_displacement_check: true
+max_lower_leg_displacement_y: 300.0
+min_lower_leg_displacement_y: 50.0
+extended_position_y: 0.0
+contracted_position_y: 130.0
+
+hip_drift_tolerance: 70.0
+hip_stability_check: true
+check_knee_position: true
+max_knee_forward_drift: 40.0
+max_hip_drift_velocity: 30.0
+
+vertical_motion_check: true
+knee_position_stable: true
+requires_stability: true
+body_alignment_check: true
+controlled_eccentric_check: true
+max_eccentric_speed: 120.0
+
+detect_momentum: true
+max_acceleration_threshold: 200.0
+detect_hip_lifting: true
+
+require_full_extension: true
+require_full_contraction: true
+validate_starting_position: true
+min_rep_duration_sec: 2.0
+max_rep_duration_sec: 12.0
+
+check_tempo: true
+min_concentric_duration: 1.0
+min_eccentric_duration: 2.0
+max_pause_at_top: 2.0
+
+starting_angle_range: [160.0, 180.0]
+starting_lower_leg_range: [0.0, 15.0]
+
+debug: false

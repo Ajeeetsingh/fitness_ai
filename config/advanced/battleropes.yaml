@@ -1,0 +1,25 @@
+# FILE: configs/advanced/battleropes.yaml
+#
+# ADVANCED: Strict, big waves (full ROM), less smoothing, and enforces control.
+# Base: battleropes.yaml
+
+# Rep counting metric (ADVANCED: Full range of motion)
+# The "up" and "down" thresholds are far apart, requiring big waves.
+up_y_thr: 0.61   # Must lift arms high
+down_y_thr: 0.63   # Must slam down low
+
+# Debounce/stability (ADVANCED: Enforces a slight "hold" at the top/bottom)
+min_up_frames: 3
+min_down_frames: 3
+
+# Refractory
+refractory_frames: 10
+
+# Smoothing (ADVANCED: Less smoothing for more responsive, strict tracking)
+ema_wrist_y_alpha: 0.6
+ema_elbow_alpha: 0.6
+
+# Form checks (ADVANCED: Stricter form, demands straighter arms)
+elbow_angle_ok: 130.0
+
+debug: true

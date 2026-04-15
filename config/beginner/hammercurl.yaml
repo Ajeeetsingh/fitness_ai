@@ -1,0 +1,13 @@
+# FILE: configs/beginner/hammercurl/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and more smoothing.
+
+# Hammer curl thresholds (BEGINNER: Smaller range of motion)
+HAMMERCURL_DOWN_ELBOW_THR: 140.0 # Doesn't need to fully extend
+HAMMERCURL_UP_ELBOW_THR: 100.0   # Doesn't need to curl as high
+HAMMERCURL_MIN_HOLD_FRAMES: 2    # Hysteresis to prevent overcounting
+
+# Smoothing (BEGINNER: More smoothing)
+ema_elbow_alpha: 0.15
+
+debug: true

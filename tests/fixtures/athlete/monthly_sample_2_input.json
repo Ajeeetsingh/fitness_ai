@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "basketball",
+  "phase": "build",
+  "weekly_sessions": 4,
+  "competition_date": "2026-01-10",
+  "focus": "strength_power_and_change_of_direction",
+  "text": "In-season support block with strength maintenance, jump work, and short conditioning.",
+  "goal": "improve_vertical_jump_and_lateral_quickness",
+  "minutes": 70,
+  "experience": "advanced",
+  "plan_type": "monthly",
+  "equipment": "gym",
+  "style": "mixed",
+  "injuries": "mild_chronic_ankle_instability_right",
+  "age": "26",
+  "body_type": "athletic",
+  "location": "gym",
+  "language": "en"
+}
+

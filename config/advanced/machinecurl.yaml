@@ -1,0 +1,66 @@
+# configs/exercises/machinebicepcurl_athlete.yaml
+# Configuration for Machine Bicep Curl analyzer - ATHLETE VERSION
+
+# --- Debounce / stability ---
+min_hold_frames: 3              # Better state confirmation (was 1)
+stand_stable_frames: 3          # More stable transitions (was 1)
+
+# --- Refractory ---
+refractory_frames: 5            # Longer cooldown (was 2)
+
+# --- Angle thresholds - Elbow ---
+curled_deg: 45.0                # Deeper curl required (was 55.0)
+extended_deg: 165.0             # Fuller extension required (was 150.0)
+
+# --- Machine-specific considerations ---
+fixed_shoulder_position: true
+bilateral_movement: true
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement: 50.0    # Greater ROM required (was 40.0)
+max_wrist_displacement: 150.0   # Tighter range control (was 160.0)
+wrist_start_threshold: -50.0    # More precise start (was -60.0)
+wrist_peak_threshold: 60.0      # Higher peak requirement (was 50.0)
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.35           # Less smoothing for precision (was 0.45)
+ema_wrist_alpha: 0.35           # Less smoothing for precision (was 0.45)
+
+# --- Form checks ---
+wrist_displacement_check: true
+symmetry_check: true
+symmetry_tolerance_deg: 20.0    # Stricter symmetry (was 35.0)
+
+# --- Machine curl-specific form checks ---
+consistent_path_check: true
+controlled_eccentric_check: true  # Athletes must control descent (was false)
+max_eccentric_speed: 150.0        # Slower controlled lowering (was 220.0)
+
+# --- Asymmetry detection ---
+max_angle_asymmetry: 25.0         # Stricter balance (was 45.0)
+max_wrist_asymmetry: 40.0         # Better symmetry (was 60.0)
+max_timing_asymmetry_sec: 0.5     # Tighter synchronization (was 0.9)
+
+# --- Debug ---
+debug: false
+
+# --- Adaptive calibration ---
+use_adaptive_thresholds: false
+calibration_frames: 30
+
+# --- Per-arm tracking ---
+track_arms_separately: true
+
+# --- Rep validation ---
+require_full_extension: true      # Full ROM required (was false)
+require_full_contraction: true    # Full contraction required (was false)
+min_rep_duration_sec: 2.0         # Longer controlled reps (was 1.2)
+max_rep_duration_sec: 8.0         # Reasonable tempo (was 12.0)
+
+# --- Athlete-specific additions ---
+bicep_isolation_check: true       # Minimize shoulder/back involvement
+max_shoulder_movement: 10.0       # Keep shoulders stable
+require_peak_contraction: true    # Squeeze at top
+min_peak_hold_sec: 0.3           # Hold at peak contraction
+elbow_position_check: true        # Elbows stay in proper position
+max_elbow_drift_forward: 15.0    # Prevent swinging

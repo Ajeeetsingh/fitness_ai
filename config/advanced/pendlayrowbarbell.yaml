@@ -1,0 +1,24 @@
+# FILE: configs/advanced/pendlayrowbarbell/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a stable back.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+up_elbow_angle: 125.0     # ADVANCED: Must pull higher
+down_elbow_angle: 175.0   # ADVANCED: Must extend to a full dead stop
+up_margin: 10.0
+down_margin: 10.0
+
+# FORM CHECK IS BASED ON HIP/BACK ANGLE
+min_back_angle: 25.0      # ADVANCED: Enforces a stricter flat back
+max_back_angle: 45.0      # ADVANCED: Prevents torso from lifting
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause at the top)
+min_down_frames: 2
+min_up_frames: 3
+refractory_frames: 8
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_elbow_alpha: 0.6
+ema_back_alpha: 0.6
+
+debug: true

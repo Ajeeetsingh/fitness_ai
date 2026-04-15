@@ -1,0 +1,103 @@
+# Configuration for Seated Overhead Dumbbell Press - ATHLETE VERSION
+
+# --- Stability & Refractory ---
+min_hold_frames: 3           # Better stability (was 1)
+stand_stable_frames: 4       # Stricter transitions (was 2)
+refractory_frames: 6         # Longer cooldown (was 3)
+
+# --- Angle thresholds (Elbow) ---
+bent_deg: 85.0               # Deeper starting position (was 80.0)
+extended_deg: 45.0           # Fuller lockout required (was 55.0)
+
+# --- Shoulder thresholds ---
+shoulder_start_deg: 180.0
+shoulder_extended_deg: 25.0  # Fuller shoulder extension (was 30.0)
+
+# --- Movement characteristics ---
+bilateral_movement: true     # Athletes should use both arms (was false)
+requires_core_stability: true
+vertical_path: true
+shoulder_mobility_required: true
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement_y: 30.0    # Greater ROM required (was 20.0)
+max_wrist_displacement_y: 350.0
+wrist_start_threshold_y: 0.0      # More precise start (was -5.0)
+wrist_extended_threshold_y: -280.0 # Higher extension (was -250.0)
+
+# --- Horizontal stability ---
+max_wrist_drift_x: 80.0           # Stricter path control (was 120.0)
+wrist_alignment_check: true       # Enable for athletes (was false)
+
+# --- Range of Motion (ROM) ---
+min_rom_elbow: 25.0               # Greater ROM required (was 15.0)
+min_rom_shoulder: 15.0            # Greater shoulder ROM (was 10.0)
+min_rom_wrist_y: 240.0            # Greater vertical travel (was 200.0)
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.4              # Less smoothing for precision (was 0.5)
+ema_shoulder_alpha: 0.4           # Less smoothing for precision (was 0.5)
+ema_wrist_alpha: 0.4              # Less smoothing for precision (was 0.5)
+
+# --- Form checks ---
+wrist_displacement_check: true
+symmetry_check: true              # Enable for athletes (was false)
+symmetry_tolerance_deg: 30.0      # Tighter tolerance (was 50.0)
+
+# --- Overhead press form ---
+vertical_path_check: true
+bar_path_straightness: true       # Enable path checking (was false)
+max_horizontal_deviation: 60.0    # Stricter path (was 120.0)
+lockout_check: true               # Require full lockout (was false)
+controlled_descent_check: true    # Control eccentric (was false)
+max_descent_speed: 300.0          # Slower descent (was 500.0)
+
+# --- Shoulder positioning ---
+shoulder_elevation_check: true    # Enable shoulder checks (was false)
+max_shoulder_elevation: 30.0      # Stricter shoulder control (was 50.0)
+
+# --- Momentum & control detection ---
+detect_momentum: true             # Enable momentum detection (was false)
+max_acceleration_threshold: 600.0 # Stricter control (was 1000.0)
+pause_at_top: true                # Require lockout pause (was false)
+min_pause_duration_sec: 0.2       # Duration of pause (was 0.1)
+
+# --- Symmetry detection ---
+max_angle_asymmetry: 50.0         # Better balance (was 100.0)
+max_shoulder_asymmetry: 40.0      # Better symmetry (was 100.0)
+max_wrist_asymmetry: 80.0         # Better alignment (was 150.0)
+max_timing_asymmetry_sec: 0.8     # Better sync (was 2.0)
+
+# --- Debugging ---
+debug: false
+
+# --- Per-arm tracking ---
+track_arms_separately: true
+require_synchronized_movement: true  # Athletes should sync (was false)
+max_phase_difference: 0.8           # Tighter sync (was 2.0)
+
+# --- Rep validation ---
+require_full_extension: true        # Full ROM required (was false)
+require_full_contraction: true      # Complete return (was false)
+min_rep_duration_sec: 2.5           # Controlled tempo (was 2.0)
+max_rep_duration_sec: 5.0           # Efficient tempo (was 3.5)
+
+# --- Elbow position checks ---
+check_elbow_flare: true             # Monitor elbow position (was false)
+max_elbow_flare_deg: 70.0           # Stricter elbow control (was 90.0)
+elbow_tracking_forward: true
+
+# --- Seated posture validation ---
+check_seated_posture: true          # Enable posture checks (was false)
+max_torso_lean_deg: 30.0            # Stricter posture (was 45.0)
+check_lower_back_arch: true         # Monitor back position (was false)
+
+# --- Safety checks ---
+check_head_position: true           # Ensure head safety (was false)
+check_wrist_alignment: true         # Monitor wrist position (was false)
+max_wrist_bend_deg: 40.0            # Stricter wrist alignment (was 60.0)
+
+# --- Athlete-specific additions ---
+scapular_control_check: true        # Ensure proper shoulder blade movement
+deltoid_isolation: true             # Minimize tricep dominance
+core_bracing_check: true            # Maintain core tension throughout

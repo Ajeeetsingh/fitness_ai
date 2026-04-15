@@ -1,0 +1,3 @@
+ts_utc,kind,status,latency_s,goal,minutes,experience,plan_type,equipment,style,injuries,age,body_type,location,language,population,sport,phase,weekly_sessions,competition_date,focus,plan_id,markdown_path,len_chars,error_preview
+2025-10-23T06:58:56.778327+00:00,llm,error,0.558,(llm_passthrough),15,,weekly,,,,,,,,,,,,,,,,,LLM returned no text
+2025-10-23T07:01:41.543393+00:00,general,error,0.622,build chest,15,0,weekly,none,any,none,25,slim,india,en,general,,,,,,,,,LLM returned no text

@@ -1,0 +1,31 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Athlete Daily Workout Plan",
+  "type": "object",
+  "required": ["provided_information", "summary", "day_1", "metadata"],
+  "properties": {
+    "provided_information": {
+      "type": "object",
+      "required": ["sport", "phase", "minutes"],
+      "properties": {
+        "sport": {"type": "string"},
+        "phase": {"type": "string"},
+        "minutes": {"type": "integer", "minimum": 20},
+        "population": {"type": "string", "default": "competitive_athlete"}
+      }
+    },
+    "summary": {"type": "string"},
+    "day_1": {
+      "type": "object",
+      "required": ["warmup", "main_session", "cooldown"]
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "auto_filled_fields": {"type": "array", "maxItems": 6}
+      }
+    }
+  }
+}
+

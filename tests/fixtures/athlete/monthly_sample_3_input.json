@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "road_cycling",
+  "phase": "build",
+  "weekly_sessions": 6,
+  "competition_date": "2026-06-20",
+  "focus": "ftp_and_climbing_strength",
+  "text": "Block to raise FTP and climb performance. Include intervals at threshold and VO2max plus gym strength.",
+  "goal": "increase_ftp_and_repeat_climb_ability",
+  "minutes": 90,
+  "experience": "advanced",
+  "plan_type": "monthly",
+  "equipment": "gym",
+  "style": "endurance_focused",
+  "injuries": "",
+  "age": "28",
+  "body_type": "lean",
+  "location": "indoor_trainer_and_road",
+  "language": "en"
+}
+

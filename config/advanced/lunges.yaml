@@ -1,0 +1,17 @@
+# FILE: configs/advanced/lunges/default.yaml
+#
+# ADVANCED: Stricter, full ROM, enforces upright torso and control.
+
+# Per-exercise thresholds & behavior
+lunge_down_knee_thr: 95.0    # ADVANCED: Deeper lunge (closer to 90 deg)
+lunge_stand_knee_thr: 165.0  # ADVANCED: Must stand up fully
+lunge_hip_lean_max: 20.0     # ADVANCED: Enforces an upright torso
+
+min_down_frames: 4           # ADVANCED: Enforces a slight pause at the bottom
+min_up_frames: 2
+
+# ADVANCED: Less smoothing
+ema_knee_alpha: 0.7
+ema_hip_alpha: 0.7
+
+debug: true

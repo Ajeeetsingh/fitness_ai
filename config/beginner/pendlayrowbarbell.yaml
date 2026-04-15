@@ -1,0 +1,24 @@
+# FILE: configs/beginner/pendlayrowbarbell/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more torso movement.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+up_elbow_angle: 140.0     # BEGINNER: Doesn't need to pull as high
+down_elbow_angle: 160.0   # BEGINNER: Doesn't need to extend as far
+up_margin: 25.0
+down_margin: 25.0
+
+# FORM CHECK IS BASED ON HIP/BACK ANGLE
+min_back_angle: 15.0      # BEGINNER: Allows for more torso movement/rounding
+max_back_angle: 60.0      # BEGINNER: Allows for more lifting up
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 8
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_elbow_alpha: 0.2
+ema_back_alpha: 0.2
+
+debug: true

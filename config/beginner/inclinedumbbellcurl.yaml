@@ -1,0 +1,46 @@
+# configs/exercises/inclinedumbbellcurl.yaml
+
+# Configuration for Incline Dumbbell Curl analyzer
+
+# --- Debounce / stability ---
+min_hold_frames: 3            # frames to confirm curl/extend state
+stand_stable_frames: 2        # frames to confirm transition stability
+
+# --- Refractory ---
+refractory_frames: 4          # cooldown before counting next rep
+
+# --- Angle thresholds - Elbow ---
+curled_deg: 60.0              # below this = curled position
+extended_deg: 160.0           # above this = extended position
+
+# --- Shoulder stability thresholds ---
+max_shoulder_movement: 15.0   # max shoulder angle change during rep
+min_shoulder_angle: 30.0      # minimum acceptable shoulder angle
+max_shoulder_angle: 70.0      # maximum acceptable shoulder angle
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement: 40.0  # minimum vertical wrist travel for valid rep
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.3          # smoothing for elbow angle signal
+ema_shoulder_alpha: 0.25      # smoothing for shoulder angle signal
+
+# --- Form checks ---
+shoulder_stability_check: true    # check if shoulders stay stable
+wrist_displacement_check: true    # verify adequate range of motion
+symmetry_check: true              # check left-right balance
+symmetry_tolerance_deg: 20.0      # max allowed angle difference L-R
+
+# --- Asymmetry detection ---
+max_angle_asymmetry: 30.0         # flag if L-R elbow diff exceeds this
+max_timing_asymmetry_sec: 0.6     # flag if arms are out of sync
+
+# --- Debug ---
+debug: false
+
+# --- Adaptive calibration (optional) ---
+use_adaptive_thresholds: false    # set True for auto-learned thresholds
+calibration_frames: 30            # frames for adaptive baseline learning
+
+# --- Per-arm tracking ---
+track_arms_separately: true       # count reps per arm independently

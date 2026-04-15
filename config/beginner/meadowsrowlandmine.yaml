@@ -1,0 +1,24 @@
+# FILE: configs/beginner/meadowsrowlandmine/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more body movement.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+up_elbow_angle: 90.0      # BEGINNER: Doesn't need to pull as high
+down_elbow_angle: 150.0   # BEGINNER: Doesn't need to extend as far
+up_margin: 25.0
+down_margin: 25.0
+
+# FORM CHECK IS BASED ON HIP ANGLE
+min_hip_angle: 35.0     # BEGINNER: Allows for more bend
+max_hip_angle: 95.0     # BEGINNER: Allows for more standing up / "cheating"
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_elbow_alpha: 0.2
+ema_hip_alpha: 0.2
+
+debug: true

@@ -1,0 +1,13 @@
+# FILE: configs/advanced/hammercurl/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a slight hold.
+
+# Hammer curl thresholds (ADVANCED: Full range of motion)
+HAMMERCURL_DOWN_ELBOW_THR: 160.0 # Must extend arm fully
+HAMMERCURL_UP_ELBOW_THR: 80.0    # Must curl tight to the shoulder
+HAMMERCURL_MIN_HOLD_FRAMES: 6    # Enforce a slight pause/squeeze at the top
+
+# Smoothing (ADVANCED: Less smoothing)
+ema_elbow_alpha: 0.6
+
+debug: true

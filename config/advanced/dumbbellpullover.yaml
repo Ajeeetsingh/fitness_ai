@@ -1,0 +1,24 @@
+# FILE: configs/advanced/dumbbellpullover.yaml
+#
+# ADVANCED: Stricter, full ROM, enforces straight arms and control.
+# Base: dumbbellpullover.yaml
+
+# The primary angle for rep counting is the shoulder angle
+up_shoulder_angle: 150.0    # ADVANCED: Requires a full, deep stretch overhead
+down_shoulder_angle: 75.0     # ADVANCED: Must bring dumbbell low over chest
+up_margin: 5.0            # ADVANCED: Tight margin
+down_margin: 5.0          # ADVANCED: Tight margin
+
+# Form check: Elbows (ADVANCED: Enforces very straight arms)
+min_elbow_angle: 140.0
+
+# Debounce: (ADVANCED: Enforces a slight pause at the top and bottom)
+min_down_frames: 4
+min_up_frames: 4
+refractory_frames: 8
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_shoulder_alpha: 0.4
+ema_elbow_alpha: 0.4
+
+debug: true

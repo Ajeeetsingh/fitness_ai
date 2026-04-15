@@ -1,0 +1,27 @@
+# FILE: configs/beginner/chest_fly_flat.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows more elbow bend.
+# Base: flat.yaml
+
+# Rep counting metric (BEGINNER: Smaller range of motion)
+up_wrist_dist_norm: 1.7     # Doesn't need to bring hands as close
+down_wrist_dist_norm: 2.4   # Doesn't need to open arms as wide
+up_margin_norm: 0.4         # BEGINNER: Large margin
+down_margin_norm: 0.4       # BEGINNER: Large margin
+
+# Debounce/stability
+min_up_frames: 2
+min_down_frames: 2
+
+# Refractory
+refractory_frames: 8
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_wrist_dist_alpha: 0.15
+ema_elbow_alpha: 0.15
+
+# Form checks (BEGINNER: Allows for more elbow bend)
+elbow_angle_min: 140.0
+elbow_angle_max: 170.0
+
+debug: true

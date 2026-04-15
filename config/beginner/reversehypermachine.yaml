@@ -1,0 +1,23 @@
+# FILE: configs/beginner/reversehypermachine/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more knee bend.
+
+# REP COUNTING IS BASED ON HIP ANGLE
+down_hip_angle: 115.0   # BEGINNER: Doesn't need to swing as far down
+up_hip_angle: 150.0     # BEGINNER: Doesn't need to lift as high
+down_margin: 25.0
+up_margin: 25.0
+
+# FORM CHECK IS BASED ON KNEE ANGLE
+min_knee_angle: 135.0   # BEGINNER: Allows for more knee bend
+
+# Debounce / hysteresis (frames)
+min_down_frames: 1
+min_up_frames: 1
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_hip_alpha: 0.2
+ema_knee_alpha: 0.2
+
+debug: true

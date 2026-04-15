@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "sprinting_100m_200m",
+  "phase": "build",
+  "weekly_sessions": 4,
+  "competition_date": "2026-04-10",
+  "focus": "speed_and_explosive_power",
+  "text": "Speed-focused week. Include max velocity work, acceleration drills, and light strength maintenance.",
+  "goal": "improve_top_speed_and_block_start",
+  "minutes": 70,
+  "experience": "advanced",
+  "plan_type": "weekly",
+  "equipment": "gym",
+  "style": "power_speed",
+  "injuries": "",
+  "age": "22",
+  "body_type": "athletic",
+  "location": "track_and_gym",
+  "language": "en"
+}
+

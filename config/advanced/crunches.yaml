@@ -1,0 +1,26 @@
+# Configuration for crunches analyzer - ATHLETE VERSION
+# Stricter thresholds for advanced form and precision
+
+# Core threshold - SINGLE VALUE
+crunch_angle_peak: 75.0          # Stricter: Below = crunched, Above = extended (was 85.0)
+
+# Smoothing for display only
+ema_angle_alpha: 0.2             # Less smoothing for more responsive feedback (was 0.3)
+
+# FSM settings
+refractory_frames: 15            # Increased to prevent any false counts (was 12)
+min_state_duration_sec: 0.4      # Longer hold required for valid state (was 0.3)
+
+# Posture checks
+max_hip_shift: 20.0              # Stricter lateral hip control (was 30.0)
+
+# Additional athlete-specific checks
+min_contraction_hold_sec: 0.2    # Require pause at peak contraction
+max_momentum_threshold: 150.0    # Detect and penalize momentum-based reps
+require_controlled_descent: true # Must control the eccentric phase
+
+# Debug
+debug: false                     # Enable debug prints
+
+# Optional path to feedback.json
+feedback_path: null

@@ -1,0 +1,34 @@
+# Configuration for Shoulder Upright Row (Dumbbells) Analyzer
+
+# --- Core thresholds ---
+min_elbow_angle: 0.0
+max_elbow_angle: 180.0
+rep_tolerance: 15.0   # allowable deviation in elbow angle for valid rep
+
+# --- EMA smoothing ---
+ema_alpha: 0.1
+
+# --- FSM settings (state machine for up/down detection) ---
+refractory_frames: 12
+min_state_duration_sec: 0.3
+
+# --- Posture / symmetry ---
+max_wrist_height_diff: 15.0      # allow small left/right differences
+max_hip_shift: 30.0              # lateral hip shift threshold
+symmetry_threshold_px: 20.0
+symmetry_stable_px: 10.0
+
+# --- Dumbbell movement thresholds (independent for left/right) ---
+L_dumbbell_height_up_threshold: -70.0
+L_dumbbell_height_down_threshold: -120.0
+R_dumbbell_height_up_threshold: -70.0
+R_dumbbell_height_down_threshold: -120.0
+
+# --- Keypoint smoothing ---
+frame_smoothing: 3
+
+# --- Rep counting settings ---
+min_rep_peak_delta: 20.0   # minimum ΔY movement to count as a rep
+
+# --- Debug ---
+debug: false

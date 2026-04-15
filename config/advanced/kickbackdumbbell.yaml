@@ -1,0 +1,71 @@
+# configs/exercises/kickbackdumbbell_athlete.yaml
+# Configuration for Dumbbell Kickback analyzer - ATHLETE VERSION
+
+# --- Debounce / stability ---
+min_hold_frames: 4              # Enhanced stability (was 2)
+stand_stable_frames: 3          # Better confirmation (was 1)
+
+# --- Refractory ---
+refractory_frames: 5            # Longer cooldown (was 2)
+
+# --- Angle thresholds - Elbow ---
+bent_deg: 120.0                 # Return to stricter starting position (was 130.0)
+extended_deg: 160.0             # Fuller extension required (was 145.0)
+
+# --- Kickback-specific considerations ---
+hinged_torso: true
+unilateral_capable: true
+requires_stability: true
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement_x: 25.0  # Greater ROM required (was 15.0)
+max_wrist_displacement_x: 110.0 # Tighter control (was 120.0)
+wrist_start_threshold_x: -5.0   # More precise starting position (was -10.0)
+wrist_extended_threshold_x: 45.0 # Stricter extension requirement (was 30.0)
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.4            # More controlled (was 0.5)
+ema_wrist_alpha: 0.4            # More controlled (was 0.5)
+
+# --- Form checks ---
+wrist_displacement_check: true
+symmetry_check: true            # Enable for athletes (was false)
+symmetry_tolerance_deg: 30.0    # Tighter tolerance (was 50.0)
+
+# --- Kickback-specific form checks ---
+horizontal_extension_check: true
+elbow_position_stable: true
+controlled_return_check: true   # Athletes must control descent (was false)
+max_return_speed: 120.0         # Slower controlled return (was 200.0)
+
+# --- Momentum/swing detection ---
+detect_momentum: true
+max_acceleration_threshold: 150.0  # Much stricter (was 250.0)
+
+# --- Asymmetry detection ---
+max_angle_asymmetry: 35.0       # Tighter control (was 60.0)
+max_wrist_asymmetry: 50.0       # Better balance (was 80.0)
+max_timing_asymmetry_sec: 0.8   # Better synchronization (was 1.5)
+
+# --- Debug ---
+debug: false
+
+# --- Per-arm tracking ---
+track_arms_separately: true
+allow_alternating_reps: true
+
+# --- Rep validation ---
+require_full_extension: true    # Full ROM required (was false)
+require_full_contraction: true  # Full return required (was false)
+min_rep_duration_sec: 0.6       # Longer controlled reps (was 0.3)
+max_rep_duration_sec: 4.0       # Reasonable tempo (was 6.0)
+
+# --- Elbow height stability ---
+check_elbow_height: true
+max_elbow_vertical_drift: 25.0  # Stricter stability (was 40.0)
+
+# --- Athlete-specific additions ---
+tricep_isolation_check: true    # Ensure tricep focus
+max_shoulder_involvement: 15.0  # Minimal shoulder movement
+require_peak_contraction: true  # Squeeze at full extension
+min_peak_hold_sec: 0.2          # Hold at lockout

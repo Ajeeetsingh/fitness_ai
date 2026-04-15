@@ -1,0 +1,18 @@
+{
+  "provided_information": {
+    "sport": "marathon",
+    "phase": "build",
+    "weekly_sessions": 5
+  },
+  "weekly_schedule": {
+    "day_1": {
+      "session_type": "strength",
+      "duration_minutes": 60,
+      "warmup": {"total_minutes": 10, "items": []},
+      "main_work": {"total_minutes": 40, "exercises": []},
+      "accessory": {"total_minutes": 5, "exercises": []},
+      "cooldown": {"total_minutes": 5, "exercises": []}
+    }
+  }
+}
+

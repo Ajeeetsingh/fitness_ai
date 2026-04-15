@@ -1,0 +1,31 @@
+# FILE: configs/advanced/barbellsquats.yaml
+#
+# ADVANCED: Stricter, tighter margins, full ROM, and enforces a slight hold.
+# Base: barbellsquats.yaml
+
+side_strategy: min_of_both
+
+# Core thresholds (ADVANCED: Deep squat, full lockout)
+down_angle_deg: 80.0    # ADVANCED: Must squat deep (below parallel)
+up_angle_deg: 170.0   # ADVANCED: Must stand up and lock out fully
+
+# Margin for acceptance (ADVANCED: Very tight margins)
+bottom_margin_deg: 5.0
+top_margin_deg: 5.0
+
+# Debounce/stability (ADVANCED: Enforces pause at the bottom)
+min_bottom_frames: 4
+stand_stable_frames: 2
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_knee_alpha: 0.7
+ema_hip_alpha: 0.7
+ema_elbow_alpha: 0.50
+
+# Form checks (ADVANCED: Enforces an upright chest)
+stand_upright_max_tilt_deg: 15.0
+
+debug: true

@@ -1,0 +1,23 @@
+# FILE: configs/advanced/frontraisedumbbell/default.yaml
+#
+# ADVANCED: Stricter, full ROM, enforces straight arms and stable body.
+
+# REP COUNTING IS BASED ON SHOULDER ANGLE
+up_shoulder_angle: 95.0     # ADVANCED: Must raise at or slightly above 90 degrees
+down_shoulder_angle: 15.0   # ADVANCED: Must lower arm fully
+up_margin: 5.0
+down_margin: 5.0
+
+# FORM CHECK IS BASED ON ELBOW ANGLE
+min_elbow_angle: 160.0      # ADVANCED: Enforces a very straight arm
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause)
+min_down_frames: 3
+min_up_frames: 3
+refractory_frames: 5
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_shoulder_alpha: 0.7
+ema_elbow_alpha: 0.7
+
+debug: true

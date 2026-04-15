@@ -1,0 +1,26 @@
+# FILE: configs/advanced/triceppushdown/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces minimal body lean.
+
+# Core thresholds (ADVANCED: Full range of motion)
+up_elbow_deg: 85.0    # Must curl higher
+down_elbow_deg: 160.0 # Must extend fully
+
+# Margin for acceptance (ADVANCED: Tight margins)
+up_angle_margin: 5.0
+down_angle_margin: 5.0
+
+# Debounce/stability (ADVANCED: Enforces a slight pause)
+min_up_frames: 3
+min_down_frames: 3
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_elbow_alpha: 0.6
+
+# Form checks
+shoulder_lean_max: 15.0   # Enforces strict, upright posture
+
+debug: true

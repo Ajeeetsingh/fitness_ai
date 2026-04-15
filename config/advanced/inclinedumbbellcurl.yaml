@@ -1,0 +1,51 @@
+# configs/exercises/inclinedumbbellcurl_athlete.yaml
+# Configuration for Incline Dumbbell Curl analyzer - ATHLETE VERSION
+
+# --- Debounce / stability ---
+min_hold_frames: 5            # Stricter stability requirement (was 3)
+stand_stable_frames: 4        # More frames for transition confirmation (was 2)
+
+# --- Refractory ---
+refractory_frames: 6          # Longer cooldown to ensure clean reps (was 4)
+
+# --- Angle thresholds - Elbow ---
+curled_deg: 50.0              # Deeper curl required (was 60.0)
+extended_deg: 170.0           # Fuller extension required (was 160.0)
+
+# --- Shoulder stability thresholds ---
+max_shoulder_movement: 10.0   # Stricter shoulder stability (was 15.0)
+min_shoulder_angle: 35.0      # Tighter acceptable range (was 30.0)
+max_shoulder_angle: 65.0      # Tighter acceptable range (was 70.0)
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement: 50.0  # Greater range of motion required (was 40.0)
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.25         # Less smoothing for precision (was 0.3)
+ema_shoulder_alpha: 0.2       # Less smoothing for precision (was 0.25)
+
+# --- Form checks ---
+shoulder_stability_check: true
+wrist_displacement_check: true
+symmetry_check: true
+symmetry_tolerance_deg: 15.0  # Stricter symmetry requirement (was 20.0)
+
+# --- Asymmetry detection ---
+max_angle_asymmetry: 20.0     # Tighter balance requirement (was 30.0)
+max_timing_asymmetry_sec: 0.4 # Better synchronization required (was 0.6)
+
+# --- Debug ---
+debug: false
+
+# --- Adaptive calibration ---
+use_adaptive_thresholds: false
+calibration_frames: 30
+
+# --- Per-arm tracking ---
+track_arms_separately: true
+
+# --- Athlete-specific additions ---
+require_tempo_control: true
+min_eccentric_duration_sec: 1.5  # Slow, controlled lowering
+min_concentric_duration_sec: 0.8 # Explosive but controlled lift
+max_momentum_score: 100.0        # Minimal momentum allowed

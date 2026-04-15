@@ -1,0 +1,30 @@
+# FILE: configs/beginner/clappingpushups.yaml
+#
+# BEGINNER: More forgiving, wider margins, and less required range of motion.
+# Base: clappingpushups.yaml
+
+# Core thresholds (BEGINNER: Shallower push-up, less explosive push needed)
+down_elbow_angle_deg: 100.0
+up_elbow_angle_deg: 135.0
+
+# Margin for acceptance (BEGINNER: Very large margins)
+bottom_margin_deg: 25.0
+top_margin_deg: 25.0
+
+# Debounce/stability (BEGINNER: More time allowed for the clap)
+min_bottom_frames: 2
+stand_stable_frames: 2
+clapping_margin_frames: 15
+
+# Refractory
+refractory_frames: 8
+
+# Smoothing (BEGINNER: More smoothing for less controlled movements)
+ema_elbow_alpha: 0.2
+ema_shoulder_alpha: 0.2
+
+# Form checks (BEGINNER: More forgiving on clap distance)
+over_extension_max_angle_deg: 20.0
+max_clap_distance_px: 75.0
+
+debug: true

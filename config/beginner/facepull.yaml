@@ -1,0 +1,25 @@
+# FILE: configs/beginner/facepull/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, larger margins, and allows lower elbows.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+extended_elbow_angle: 140.0 # BEGINNER: Doesn't need to fully extend
+pulled_elbow_angle: 90.0     # BEGINNER: Doesn't need to pull as far back
+extended_margin: 25.0
+pulled_margin: 25.0
+
+# FORM CHECKS
+min_shoulder_angle_contracted: 40.0 # BEGINNER: Less strict contraction
+max_upper_arm_torso_angle: 105.0    # BEGINNER: Allows elbows to drop
+
+# Debounce / hysteresis (frames)
+min_pulled_frames: 2
+min_extended_frames: 2
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_elbow_alpha: 0.2
+ema_shoulder_alpha: 0.2
+ema_arm_torso_alpha: 0.2
+
+debug: true

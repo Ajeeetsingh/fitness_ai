@@ -1,0 +1,23 @@
+# FILE: configs/advanced/neutralgrippullup/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a straight body.
+
+# Rep counting thresholds (ADVANCED: Full range of motion)
+up_elbow_angle: 50.0      # ADVANCED: Must pull higher
+down_elbow_angle: 170.0   # ADVANCED: Must extend to a full dead hang
+up_margin: 10.0
+down_margin: 10.0
+
+# Form check (ADVANCED: Enforces a very straight body)
+min_body_line_angle: 150.0
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause)
+min_down_frames: 3
+min_up_frames: 3
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_elbow_alpha: 0.6
+ema_body_line_alpha: 0.6
+
+debug: true

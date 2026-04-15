@@ -1,0 +1,99 @@
+# Configuration for Seated Overhead Dumbbell Press
+# Calibrated for asymmetric shoulder angles (Left: 56–77°, Right: 91–115°)
+
+# --- Stability & Refractory ---
+min_hold_frames: 1
+stand_stable_frames: 2
+refractory_frames: 3
+
+# --- Angle thresholds (Elbow) ---
+bent_deg: 80.0              # Upper bound (arm bent)
+extended_deg: 55.0          # Lower bound (arm extended, captures 60–65° range)
+
+# --- Shoulder thresholds ---
+shoulder_start_deg: 180.0
+shoulder_extended_deg: 30.0 # Lowered to handle right arm angles
+
+# --- Movement characteristics ---
+bilateral_movement: false
+requires_core_stability: true
+vertical_path: true
+shoulder_mobility_required: true
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement_y: 20.0
+max_wrist_displacement_y: 350.0
+wrist_start_threshold_y: -5.0
+wrist_extended_threshold_y: -250.0
+
+# --- Horizontal stability ---
+max_wrist_drift_x: 120.0
+wrist_alignment_check: false
+
+# --- Range of Motion (ROM) ---
+min_rom_elbow: 15.0
+min_rom_shoulder: 10.0
+min_rom_wrist_y: 200.0
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.5
+ema_shoulder_alpha: 0.5
+ema_wrist_alpha: 0.5
+
+# --- Form checks ---
+wrist_displacement_check: false
+symmetry_check: false
+symmetry_tolerance_deg: 50.0
+
+# --- Overhead press form ---
+vertical_path_check: true
+bar_path_straightness: false
+max_horizontal_deviation: 120.0
+lockout_check: false
+controlled_descent_check: false
+max_descent_speed: 500.0
+
+# --- Shoulder positioning ---
+shoulder_elevation_check: false
+max_shoulder_elevation: 50.0
+
+# --- Momentum & control detection ---
+detect_momentum: false
+max_acceleration_threshold: 1000.0
+pause_at_top: false
+min_pause_duration_sec: 0.1
+
+# --- Symmetry detection ---
+max_angle_asymmetry: 100.0
+max_shoulder_asymmetry: 100.0
+max_wrist_asymmetry: 150.0
+max_timing_asymmetry_sec: 2.0
+
+# --- Debugging ---
+debug: false
+
+# --- Per-arm tracking ---
+track_arms_separately: true
+require_synchronized_movement: false
+max_phase_difference: 2.0
+
+# --- Rep validation ---
+require_full_extension: false
+require_full_contraction: false
+min_rep_duration_sec: 2.0
+max_rep_duration_sec: 3.5
+
+# --- Elbow position checks ---
+check_elbow_flare: false
+max_elbow_flare_deg: 90.0
+elbow_tracking_forward: true
+
+# --- Seated posture validation ---
+check_seated_posture: false
+max_torso_lean_deg: 45.0
+check_lower_back_arch: false
+
+# --- Safety checks ---
+check_head_position: false
+check_wrist_alignment: false
+max_wrist_bend_deg: 60.0

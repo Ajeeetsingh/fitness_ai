@@ -1,0 +1,44 @@
+# configs/exercises/legextension_athlete.yaml
+# Configuration for Leg Extension analyzer - ATHLETE VERSION
+
+# --- Angle thresholds ---
+extended_deg: 170.0        # Fuller extension required (was 160.0)
+flexed_deg: 130.0          # Deeper flexion required (was 140.0)
+
+# --- FSM frame requirements ---
+min_extended_frames: 5     # Longer hold at extension (was 3)
+min_flexed_frames: 5       # Longer hold at flexion (was 3)
+refractory_frames: 12      # Longer cooldown (was 8)
+
+# --- Smoothing ---
+ema_knee_alpha: 0.25       # Less smoothing for precision (was 0.3)
+
+# --- Form validation ---
+max_knee_lateral_diff: 25.0      # Stricter knee alignment (was 40.0)
+max_knee_angle_asymmetry: 20.0   # Better symmetry required (was 30.0)
+max_back_lean: 25.0              # Stricter torso control (was 35.0)
+
+# --- Range of motion ---
+min_rom_deg: 35.0                # Minimum ROM required for valid rep
+require_full_lockout: true       # Must reach full extension
+
+# --- Tempo control ---
+min_concentric_duration_sec: 0.8 # Controlled lift
+min_eccentric_duration_sec: 1.2  # Slow, controlled lowering
+max_eccentric_speed: 180.0       # Prevent dropping weight
+
+# --- Stability checks ---
+max_hip_shift: 20.0              # Minimal hip movement
+max_torso_rotation: 10.0         # Keep torso stable
+seat_contact_check: true         # Ensure proper seating
+
+# --- Quad isolation ---
+quad_isolation_check: true       # Minimize hip flexor involvement
+max_hip_angle_change: 15.0       # Hip should stay stable
+
+# --- Peak contraction ---
+require_peak_squeeze: true       # Hold and squeeze at top
+min_peak_hold_sec: 0.3          # Duration of peak contraction
+
+# --- Debug ---
+debug: false

@@ -1,0 +1,24 @@
+# FILE: configs/advanced/meadowrowbarbell/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a stable hip hinge.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+up_elbow_angle: 100.0     # ADVANCED: Must pull high for peak contraction
+down_elbow_angle: 160.0   # ADVANCED: Must get a full stretch
+up_margin: 10.0
+down_margin: 10.0
+
+# FORM CHECK IS BASED ON HIP ANGLE
+min_hip_angle: 50.0     # ADVANCED: Enforces a strict, stable hinge
+max_hip_angle: 85.0     # ADVANCED: Prevents standing up during the rep
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause at the top)
+min_down_frames: 2
+min_up_frames: 3
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_elbow_alpha: 0.6
+ema_hip_alpha: 0.6
+
+debug: true

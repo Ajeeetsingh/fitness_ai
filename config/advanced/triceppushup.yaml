@@ -1,0 +1,21 @@
+# FILE: configs/advanced/triceppushup/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a straight body.
+
+# Angle thresholds (ADVANCED: Full range of motion)
+TRICEP_PUSHUP_DOWN_ELBOW_THR: 110.0 # Deeper "down" position
+TRICEP_PUSHUP_UP_ELBOW_THR: 155.0   # Must extend more for "up"
+TRICEP_PUSHUP_TORSO_OK_THR: 155.0   # Enforces a straighter body
+
+# Debounce / stability (ADVANCED: Enforces a slight pause at the bottom)
+TRICEP_PUSHUP_MIN_UP_FRAMES: 2
+TRICEP_PUSHUP_MIN_DOWN_FRAMES: 4
+
+# Refractory
+TRICEP_PUSHUP_REFRACTORY_FRAMES: 6
+
+# Smoothing (ADVANCED: Less smoothing)
+ema_elbow_alpha: 0.6
+ema_torso_alpha: 0.6
+
+debug: true

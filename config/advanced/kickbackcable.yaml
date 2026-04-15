@@ -1,0 +1,79 @@
+# configs/exercises/kickbackcable_athlete.yaml
+# Configuration for Cable Kickback analyzer - ATHLETE VERSION
+
+# --- Stability ---
+min_hold_frames: 4              # Enhanced stability (was 1)
+stand_stable_frames: 3          # Better transition control (was 1)
+
+# --- Refractory ---
+refractory_frames: 8            # Increased to prevent false counts (was 5)
+
+# --- Angle thresholds - Hip ---
+bent_hip_deg: 115.0             # Deeper starting position (was 120.0)
+extended_hip_deg: 165.0         # Fuller extension required (was 155.0)
+
+# --- Angle thresholds - Knee ---
+min_knee_deg: 95.0
+max_knee_deg: 180.0
+min_valid_knee_during_extension: 150.0  # Stricter knee lock (was 140.0)
+
+# --- Cable kickback specifics ---
+single_leg_exercise: true
+requires_stability: true        # Changed to true for athletes
+cable_resistance: true
+
+# --- Leg movement thresholds ---
+min_leg_displacement_y: 65.0    # Greater ROM required (was 50.0)
+max_leg_displacement_y: 300.0
+leg_down_threshold_y: 25.0      # Stricter start position (was 30.0)
+leg_extended_threshold_y: 100.0 # Higher extension requirement (was 80.0)
+
+# --- Horizontal displacement thresholds ---
+min_leg_displacement_x: -350.0
+max_leg_displacement_x: 200.0
+leg_extended_threshold_x_abs: 50.0  # Stricter extension (was 40.0)
+
+# --- Smoothing (EMA) ---
+ema_hip_alpha: 0.5              # Less smoothing for precision (was 0.6)
+ema_knee_alpha: 0.5             # Less smoothing for precision (was 0.6)
+ema_leg_alpha: 0.55             # Less smoothing for precision (was 0.65)
+
+# --- Form checks ---
+leg_displacement_check: true
+knee_stability_check: true
+max_knee_bend_change: 15.0      # Stricter knee stability (was 25.0)
+
+hip_extension_check: true
+controlled_return_check: true   # Athletes must control eccentric (was false)
+max_return_speed: 1500.0        # Slower controlled return (was 2000.0)
+
+detect_instability: true
+max_hip_lateral_drift: 40.0     # Better hip control (was 60.0)
+
+# --- Leg tracking ---
+track_working_leg: "auto"
+auto_detect_threshold: 60.0
+
+# --- Debug ---
+debug: false
+
+# --- Rep validation ---
+require_full_extension: true
+require_full_return: true
+min_rep_duration_sec: 0.8       # Longer controlled reps (was 0.5)
+max_rep_duration_sec: 3.0       # Faster tempo expected (was 3.5)
+
+# --- Hip movement ---
+hip_dominant_movement: true
+min_hip_rom: 40.0               # Greater ROM required (was 30.0)
+max_knee_contribution: 30.0     # Stricter isolation (was 45.0)
+
+# --- State machine settings ---
+allow_reverse_start: true
+detect_any_transition: true
+
+# --- Athlete-specific additions ---
+require_glute_squeeze: true     # Peak contraction requirement
+min_hold_at_peak_sec: 0.3       # Hold at full extension
+core_stability_check: true      # Minimal torso movement
+max_torso_rotation_deg: 5.0     # Keep torso stable

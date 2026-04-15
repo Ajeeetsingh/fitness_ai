@@ -1,0 +1,67 @@
+# Bicep Curl (Barbell Variation - Athlete)
+# Strict form requirements for competitive athletes.
+
+ema_elbow_alpha: 0.25
+ema_wrist_alpha: 0.25
+ema_forearm_alpha: 0.25
+ema_shoulder_alpha: 0.2
+
+variation: barbell
+
+min_hold_frames: 4
+stand_stable_frames: 5
+refractory_frames: 8
+
+extended_deg: 160.0
+contracted_deg: 45.0
+
+bilateral_movement: true
+track_arms_separately: false
+allow_alternating_reps: false
+symmetry_check: true
+symmetry_tolerance_deg: 12.0
+max_angle_asymmetry: 15.0
+max_forearm_asymmetry: 18.0
+max_timing_asymmetry_sec: 0.2
+
+forearm_displacement_check: true
+max_forearm_displacement_y: -180.0
+min_forearm_displacement_y: -50.0
+min_rom_pixels: 80.0
+min_rom_deg: 115.0
+optimal_rom_deg: 145.0
+extended_position_y: 0.0
+contracted_position_y: -100.0
+
+shoulder_drift_tolerance: 50.0
+shoulder_stability_check: true
+check_elbow_position: true
+max_elbow_forward_drift: 40.0
+max_shoulder_drift_velocity: 25.0
+
+vertical_motion_check: true
+elbow_position_stable: true
+requires_stability: true
+upright_torso: true
+controlled_eccentric_check: true
+max_eccentric_speed: 120.0
+
+detect_momentum: true
+max_acceleration_threshold: 150.0
+detect_body_english: true
+
+require_full_extension: true
+require_full_contraction: true
+min_rep_duration_sec: 1.5
+max_rep_duration_sec: 6.0
+
+check_tempo: true
+min_concentric_duration: 0.8
+min_eccentric_duration: 1.0
+max_pause_at_top: 1.0
+
+validate_starting_position: true
+starting_angle_range: [165.0, 180.0]
+starting_forearm_range: [-15.0, 15.0]
+
+debug: false

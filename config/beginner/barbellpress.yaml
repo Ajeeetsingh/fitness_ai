@@ -1,0 +1,26 @@
+# FILE: configs/beginner/barbellpress_default.yaml
+#
+# BEGINNER: More forgiving, wider margins, and less required range of motion.
+# Base: flat.yaml (140/80)
+
+up_elbow_angle: 130.0    # BEGINNER: Reduced extension target (very little extension needed)
+down_elbow_angle: 90.0     # BEGINNER: Very shallow press target
+up_margin: 25.0          # BEGINNER: Very large margin for 'up' state
+down_margin: 20.0        # BEGINNER: Very large margin for 'down' state
+
+# Form checks (Beginner - allows for more back arch)
+shoulder_angle_min: 160.0
+shoulder_angle_max: 180.0
+shoulder_hip_min_angle: 155.0 # Allows for more hip lift / back arch
+shoulder_hip_max_angle: 180.0
+
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# BEGINNER: More smoothing (lower alpha) to reduce jitter
+ema_elbow_alpha: 0.3
+ema_shoulder_angle_alpha: 0.3
+ema_shoulder_hip_angle_alpha: 0.3
+
+debug: true

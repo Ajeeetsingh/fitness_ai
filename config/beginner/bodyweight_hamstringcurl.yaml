@@ -1,0 +1,70 @@
+# Hamstring Curl (Bodyweight Variation)
+# Lenient thresholds — ideal for no-equipment floor versions.
+
+ema_knee_alpha: 0.25
+ema_ankle_alpha: 0.30
+ema_lower_leg_alpha: 0.30
+ema_hip_alpha: 0.30
+
+variation: bodyweight
+
+extended_deg: 135.0
+contracted_deg: 95.0
+min_rom_deg: 20.0
+optimal_rom_deg: 85.0
+
+extended_threshold: 135.0
+contracted_threshold: 95.0
+min_rom_pixels: 15.0
+min_knee_rom_deg: 20.0
+refractory_frames: 8
+init_frames_wait: 3
+mid_range_angle_threshold: 120.0
+
+bilateral_movement: false
+track_legs_separately: false
+allow_alternating_reps: false
+symmetry_check: false
+symmetry_tolerance_deg: 25.0
+max_angle_asymmetry: 35.0
+max_lower_leg_asymmetry: 50.0
+max_timing_asymmetry_sec: 0.5
+
+lower_leg_displacement_check: true
+max_lower_leg_displacement_y: 300.0
+min_lower_leg_displacement_y: 15.0
+extended_position_y: 0.0
+contracted_position_y: 80.0
+
+hip_drift_tolerance: 200.0
+hip_stability_check: false
+check_knee_position: false
+max_knee_forward_drift: 100.0
+max_hip_drift_velocity: 100.0
+
+vertical_motion_check: false
+knee_position_stable: false
+requires_stability: false
+body_alignment_check: false
+controlled_eccentric_check: false
+max_eccentric_speed: 300.0
+
+detect_momentum: false
+max_acceleration_threshold: 400.0
+detect_hip_lifting: false
+
+require_full_extension: false
+require_full_contraction: false
+validate_starting_position: false
+min_rep_duration_sec: 0.2
+max_rep_duration_sec: 20.0
+
+check_tempo: false
+min_concentric_duration: 0.2
+min_eccentric_duration: 0.2
+max_pause_at_top: 5.0
+
+starting_angle_range: [120.0, 180.0]
+starting_lower_leg_range: [0.0, 50.0]
+
+debug: false

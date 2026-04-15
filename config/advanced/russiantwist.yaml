@@ -1,0 +1,53 @@
+# Configuration for Russian Twist analyzer - ATHLETE VERSION
+
+# --- State stability requirements ---
+min_hold_frames: 5            # Longer hold confirmation (was 3)
+stand_stable_frames: 6        # Stricter center return (was 4)
+
+# --- Refractory period ---
+refractory_frames: 15         # Longer cooldown to prevent false counts (was 10)
+
+# --- Norm-based thresholds ---
+left_twist_threshold: 30.0    # Deeper rotation required (was 20.0)
+right_twist_threshold: -30.0  # Deeper rotation required (was -20.0)
+
+# --- Alternative thresholds ---
+max_left_norm: 65.0           # Stricter rotation depth (was 75.0)
+max_right_norm: 65.0          # Stricter rotation depth (was 75.0)
+min_shoulder_distance: 110.0  # Better posture requirement (was 100.0)
+
+# --- Form validation ---
+posture_ratio_min: 0.9        # Stricter vertical/horizontal ratio (was 0.8)
+min_nose_hip_distance: 180.0  # Greater lean-back requirement (was 150.0)
+
+# --- Smoothing factors ---
+ema_norm_alpha: 0.3           # Less smoothing for precision (was 0.4)
+ema_posture_alpha: 0.25       # Less smoothing for precision (was 0.3)
+
+# --- Quality filters ---
+min_confidence: 0.6           # Higher confidence requirement (was 0.5)
+
+# --- Athlete-specific additions ---
+require_controlled_rotation: true  # No momentum-based twisting
+max_rotation_speed: 180.0         # Degrees per second limit
+min_rotation_rom: 80.0            # Total rotation range required
+core_engagement_check: true       # Ensure proper core activation
+feet_position_check: true         # Feet should stay elevated/stable
+max_feet_drop: 30.0              # Feet shouldn't drop significantly
+maintain_v_shape: true            # Torso-thigh angle consistency
+min_v_angle: 45.0                # Minimum V-sit angle
+max_v_angle: 70.0                # Maximum V-sit angle
+
+# --- Tempo control ---
+min_twist_duration_sec: 0.6      # Controlled rotation
+require_pause_at_ends: true      # Brief pause at each side
+min_pause_duration_sec: 0.2     # Duration of end pause
+
+# --- Spine safety ---
+lumbar_safety_check: true        # Prevent excessive lumbar rotation
+max_lumbar_rotation: 35.0        # Keep rotation in thoracic spine
+
+# --- Debug and visualization ---
+debug: false
+show_thresholds: true
+show_norms: true

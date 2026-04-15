@@ -1,0 +1,23 @@
+# FILE: configs/advanced/neutralgrippulldown/machine.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces an upright torso.
+
+# REP COUNTING IS BASED ON SHOULDER ANGLE
+up_shoulder_angle: 150.0    # ADVANCED: Must get a full stretch
+down_shoulder_angle: 60.0     # ADVANCED: Must pull down fully
+up_margin: 10.0
+down_margin: 10.0
+
+# FORM CHECK IS BASED ON TORSO LEAN
+min_torso_angle: 80.0     # ADVANCED: Enforces a very upright torso
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause)
+min_down_frames: 3
+min_up_frames: 3
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_shoulder_alpha: 0.6
+ema_torso_alpha: 0.6
+
+debug: true

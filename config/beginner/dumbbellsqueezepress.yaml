@@ -1,0 +1,33 @@
+# FILE: configs/beginner/dumbellsqueezepress/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, larger margins, allows more back arch.
+
+# Side view thresholds (BEGINNER: Shallower press)
+up_elbow_angle: 140.0
+down_elbow_angle: 95.0
+up_margin: 25.0
+down_margin: 20.0
+
+# Front view thresholds (BEGINNER: Shallower press)
+front_up_elbow_angle: 130.0
+front_down_elbow_angle: 80.0
+front_up_margin: 25.0
+front_down_margin: 20.0
+
+# Ratio for view detection
+view_split_ratio: 0.10
+
+# Form check (BEGINNER: Allows for more back arching)
+torso_tilt_min: 75.0
+torso_tilt_max: 105.0
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# BEGINNER: Added smoothing for shaky movements
+ema_elbow_alpha: 0.3
+ema_torso_alpha: 0.3
+
+debug: true

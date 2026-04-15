@@ -1,0 +1,23 @@
+# FILE: configs/beginner/handstandpushup/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more piking.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+up_elbow_angle: 140.0     # BEGINNER: Doesn't need to fully lock out
+down_elbow_angle: 115.0   # BEGINNER: Shallower rep
+up_margin: 25.0
+down_margin: 25.0
+
+# FORM CHECK IS BASED ON BODY LINE (SHOULDER-HIP-ANKLE)
+min_body_line_angle: 140.0  # BEGINNER: Allows for more piking
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_elbow_alpha: 0.2
+ema_body_line_alpha: 0.2
+
+debug: true

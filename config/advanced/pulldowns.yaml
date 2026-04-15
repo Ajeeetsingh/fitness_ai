@@ -1,0 +1,19 @@
+# FILE: configs/advanced/pulldowns/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a slight hold.
+
+PULLDOWNS_UP_THR: -0.03      # ADVANCED: Must extend to a full stretch
+PULLDOWNS_DOWN_THR: 0.14     # ADVANCED: Must pull down fully
+PULLDOWNS_MIN_DOWN_FRAMES: 3 # ADVANCED: Enforces a slight pause
+PULLDOWNS_MIN_UP_FRAMES: 3 # ADVANCED: Enforces a slight pause
+PULLDOWNS_UP_ELBOW_THR: 105.0  # ADVANCED: Tighter elbow form
+PULLDOWNS_DOWN_ELBOW_THR: 75.0 # ADVANCED: Tighter elbow form
+PULLDOWNS_AUTO_CALIBRATE: True
+PULLDOWNS_CALIB_FRAMES: 80
+PULLDOWNS_CALIB_MARGIN: 0.005  # ADVANCED: Very strict calibration
+
+# ADVANCED: Less smoothing
+ema_diff_alpha: 0.6
+ema_el_alpha: 0.6
+
+debug: True

@@ -1,0 +1,76 @@
+# configs/exercises/kickbackcable.yaml
+
+# Configuration for Cable Kickback analyzer
+
+# --- Stability ---
+min_hold_frames: 1              # Increased to 3 for more stable transitions
+stand_stable_frames: 1
+
+# --- Refractory ---
+refractory_frames: 5            # Increased from 2 to prevent false counts
+
+# --- Angle thresholds - Hip (wider range for clear distinction) ---
+bent_hip_deg: 120.0             # Below this = bent (leg down/forward)
+extended_hip_deg: 155.0         # Above this = extended (leg kicked back)
+
+# --- Angle thresholds - Knee ---
+min_knee_deg: 95.0
+max_knee_deg: 180.0
+min_valid_knee_during_extension: 140.0  # Knee must be >140° during extension
+
+# --- Cable kickback specifics ---
+single_leg_exercise: true
+requires_stability: false
+cable_resistance: true
+
+# --- Leg movement thresholds (using image coordinates) ---
+# Higher Y = lower in frame
+# leg_delta_y = initial_y - current_y (positive when leg goes up/back)
+min_leg_displacement_y: 50.0     # Minimum vertical movement required
+max_leg_displacement_y: 300.0    # Maximum expected vertical movement
+leg_down_threshold_y: 30.0       # < 30px = leg is down/near start
+leg_extended_threshold_y: 80.0   # > 80px = leg is extended back/up
+
+# --- Horizontal displacement thresholds ---
+min_leg_displacement_x: -350.0
+max_leg_displacement_x: 200.0
+leg_extended_threshold_x_abs: 40.0
+
+# --- Smoothing (EMA) ---
+ema_hip_alpha: 0.6
+ema_knee_alpha: 0.6
+ema_leg_alpha: 0.65
+
+# --- Form checks ---
+leg_displacement_check: true       # Enable ROM check
+knee_stability_check: true         # Enable knee stability check
+max_knee_bend_change: 25.0         # Max knee variation (reduced from 100)
+
+hip_extension_check: true
+controlled_return_check: false
+max_return_speed: 2000.0
+
+detect_instability: true
+max_hip_lateral_drift: 60.0        # Reduced from 150
+
+# --- Leg tracking ---
+track_working_leg: "auto"
+auto_detect_threshold: 60.0
+
+# --- Debug ---
+debug: false                       # Set to true for detailed logging
+
+# --- Rep validation ---
+require_full_extension: true       # Require full extension
+require_full_return: true          # Require full return
+min_rep_duration_sec: 0.5          # Minimum rep duration
+max_rep_duration_sec: 3.5          # Maximum rep duration
+
+# --- Hip movement (primary counter) ---
+hip_dominant_movement: true
+min_hip_rom: 30.0                  # Minimum hip range of motion
+max_knee_contribution: 45.0        # Maximum knee variation allowed
+
+# --- State machine settings ---
+allow_reverse_start: true
+detect_any_transition: true

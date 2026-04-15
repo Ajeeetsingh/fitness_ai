@@ -1,0 +1,81 @@
+# Configuration for Shoulder Upright Row (Dumbbells) Analyzer - ATHLETE VERSION
+
+# --- Core thresholds ---
+min_elbow_angle: 0.0
+max_elbow_angle: 180.0
+rep_tolerance: 10.0          # Stricter tolerance (was 15.0)
+
+# --- EMA smoothing ---
+ema_alpha: 0.08              # Much less smoothing for precision (was 0.1)
+
+# --- FSM settings ---
+refractory_frames: 18        # Longer cooldown (was 12)
+min_state_duration_sec: 0.4  # Longer state hold (was 0.3)
+
+# --- Posture / symmetry ---
+max_wrist_height_diff: 10.0  # Stricter L-R symmetry (was 15.0)
+max_hip_shift: 20.0          # Better hip stability (was 30.0)
+symmetry_threshold_px: 12.0  # Tighter symmetry (was 20.0)
+symmetry_stable_px: 6.0      # More stable (was 10.0)
+
+# --- Dumbbell movement thresholds ---
+L_dumbbell_height_up_threshold: -90.0    # Higher pull (was -70.0)
+L_dumbbell_height_down_threshold: -110.0 # Lower start (was -120.0)
+R_dumbbell_height_up_threshold: -90.0    # Higher pull (was -70.0)
+R_dumbbell_height_down_threshold: -110.0 # Lower start (was -120.0)
+
+# --- Keypoint smoothing ---
+frame_smoothing: 2           # Less smoothing for precision (was 3)
+
+# --- Rep counting settings ---
+min_rep_peak_delta: 30.0     # Greater movement required (was 20.0)
+
+# --- Athlete-specific additions ---
+elbow_height_check: true     # Elbows lead the movement
+min_elbow_wrist_separation: 35.0  # Elbows higher than wrists
+synchronization_check: true  # Both arms move together
+max_arm_phase_difference: 0.3     # Max timing difference in seconds
+
+# --- Range of motion ---
+min_rom_vertical: 70.0       # Greater vertical travel required
+require_shoulder_height: true # Dumbbells to shoulder level minimum
+max_pull_height: 100.0       # Don't over-pull
+
+# --- Path control ---
+vertical_path_check: true    # Dumbbells travel vertically
+max_horizontal_drift: 20.0   # Minimal lateral movement per dumbbell
+parallel_path_check: true    # Both dumbbells follow similar paths
+
+# --- Tempo control ---
+min_concentric_duration_sec: 0.9   # Controlled lift
+min_eccentric_duration_sec: 1.3    # Slow, controlled descent
+max_descent_speed: 180.0          # Prevent dropping
+
+# --- Form validation ---
+trap_activation_check: true       # Ensure proper trap engagement
+max_body_lean: 8.0               # Minimal forward/backward lean
+max_body_sway: 12.0              # Minimize momentum
+core_stability_check: true        # Maintain core tension
+
+# --- Shoulder safety ---
+shoulder_impingement_check: true   # Monitor shoulder health
+max_internal_rotation: 15.0        # Prevent excessive rotation
+scapular_elevation_check: true     # Proper shoulder blade movement
+optimal_elbow_angle_check: true    # Maintain healthy elbow position
+
+# --- Wrist alignment ---
+wrist_neutral_check: true          # Keep wrists neutral
+max_wrist_deviation: 25.0          # Prevent excessive wrist angle
+
+# --- Spinal alignment ---
+spine_neutral_check: true          # Maintain neutral spine
+max_lumbar_extension: 8.0          # Stricter back control
+max_cervical_extension: 12.0       # Keep neck more neutral
+
+# --- Anti-momentum measures ---
+detect_momentum: true              # Flag momentum usage
+max_acceleration_threshold: 250.0  # Prevent jerking motion
+require_controlled_start: true     # No momentum from bottom
+
+# --- Debug ---
+debug: false

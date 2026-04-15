@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "crossfit",
+  "phase": "build",
+  "weekly_sessions": 5,
+  "competition_date": "2026-01-20",
+  "focus": "work_capacity_and_olympic_lifts",
+  "text": "Competitive CrossFit athlete preparing for qualifiers. Needs focus on barbell cycling and engine work.",
+  "goal": "improve_work_capacity_under_fatigue",
+  "minutes": 60,
+  "experience": "advanced",
+  "plan_type": "weekly",
+  "equipment": "gym",
+  "style": "mixed",
+  "injuries": "mild_right_shoulder_irritation",
+  "age": "27",
+  "body_type": "muscular",
+  "location": "gym",
+  "language": "en"
+}
+

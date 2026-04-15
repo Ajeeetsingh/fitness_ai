@@ -1,0 +1,25 @@
+# FILE: configs/advanced/facepull/default.yaml
+#
+# ADVANCED: Stricter, full ROM, tight margins, and enforces high elbows.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+extended_elbow_angle: 160.0 # ADVANCED: Must extend arms fully
+pulled_elbow_angle: 75.0     # ADVANCED: Must pull back deep
+extended_margin: 10.0
+pulled_margin: 10.0
+
+# FORM CHECKS
+min_shoulder_angle_contracted: 55.0 # ADVANCED: Stricter contraction
+max_upper_arm_torso_angle: 85.0     # ADVANCED: Enforces high elbows
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause)
+min_pulled_frames: 3
+min_extended_frames: 3
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_elbow_alpha: 0.6
+ema_shoulder_alpha: 0.6
+ema_arm_torso_alpha: 0.6
+
+debug: true

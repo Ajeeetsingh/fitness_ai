@@ -1,0 +1,24 @@
+# FILE: configs/beginner/dumbbellpullover.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows more elbow bend.
+# Base: dumbbellpullover.yaml
+
+# The primary angle for rep counting is the shoulder angle
+up_shoulder_angle: 130.0    # BEGINNER: Doesn't need to extend as far back
+down_shoulder_angle: 90.0     # BEGINNER: Doesn't need to bring as low over chest
+up_margin: 25.0           # BEGINNER: Very large margin
+down_margin: 25.0         # BEGINNER: Very large margin
+
+# Form check: Elbows (BEGINNER: Allows for significant bend)
+min_elbow_angle: 110.0
+
+# Debounce: Shorter holds, just needs to hit the target
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 8
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_shoulder_alpha: 0.2
+ema_elbow_alpha: 0.2
+
+debug: true

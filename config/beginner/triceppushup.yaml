@@ -1,0 +1,21 @@
+# FILE: configs/beginner/triceppushup/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more torso sag.
+
+# Angle thresholds (BEGINNER: Smaller range of motion)
+TRICEP_PUSHUP_DOWN_ELBOW_THR: 130.0 # Shallower "down" position
+TRICEP_PUSHUP_UP_ELBOW_THR: 145.0   # Less lockout required for "up"
+TRICEP_PUSHUP_TORSO_OK_THR: 140.0   # Allows for more hip sag
+
+# Debounce / stability
+TRICEP_PUSHUP_MIN_UP_FRAMES: 2
+TRICEP_PUSHUP_MIN_DOWN_FRAMES: 2
+
+# Refractory
+TRICEP_PUSHUP_REFRACTORY_FRAMES: 6
+
+# Smoothing (BEGINNER: More smoothing)
+ema_elbow_alpha: 0.2
+ema_torso_alpha: 0.2
+
+debug: true

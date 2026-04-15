@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "mma",
+  "phase": "build",
+  "weekly_sessions": 5,
+  "competition_date": "2026-02-05",
+  "focus": "conditioning_and_strength_balance",
+  "text": "Fight camp early phase. Need to build base conditioning without over-fatiguing skills training.",
+  "goal": "increase_overall_conditioning_and_core_strength",
+  "minutes": 80,
+  "experience": "advanced",
+  "plan_type": "weekly",
+  "equipment": "gym",
+  "style": "mixed",
+  "injuries": "previous_left_knee_acl_reconstruction",
+  "age": "30",
+  "body_type": "athletic",
+  "location": "gym",
+  "language": "en"
+}
+

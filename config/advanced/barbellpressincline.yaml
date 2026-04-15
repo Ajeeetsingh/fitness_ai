@@ -1,0 +1,27 @@
+# FILE: configs/advanced/barbellpress_incline.yaml
+#
+# ADVANCED: Stricter, tighter margins, full ROM, and enforces a slight hold.
+# Base: incline.yaml
+
+up_elbow_angle: 165.0    # ADVANCED: Requires a full, proper extension (lockout)
+down_elbow_angle: 85.0     # ADVANCED: Requires a deeper press (closer to chest)
+up_margin: 5.0           # ADVANCED: Very tight margin for 'up' state
+down_margin: 3.0           # ADVANCED: Very tight margin for 'down' state
+
+# Form checks for an INCLINE bench (Advanced - strict 30-45 degree angle)
+shoulder_angle_min: 160.0
+shoulder_angle_max: 180.0
+shoulder_hip_min_angle: 135.0 # Enforces a 30-45 degree incline
+shoulder_hip_max_angle: 150.0
+
+# ADVANCED: Enforces a brief pause at the top and bottom for control
+min_down_frames: 4
+min_up_frames: 4
+refractory_frames: 6
+
+# ADVANCED: Less smoothing (higher alpha) for more responsive tracking
+ema_elbow_alpha: 0.7
+ema_shoulder_angle_alpha: 0.7
+ema_shoulder_hip_angle_alpha: 0.7
+
+debug: true

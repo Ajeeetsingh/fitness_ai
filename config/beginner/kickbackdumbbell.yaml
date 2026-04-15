@@ -1,0 +1,66 @@
+# configs/exercises/kickbackdumbbell.yaml
+
+# Configuration for Dumbbell Kickback analyzer
+
+# --- Debounce / stability ---
+min_hold_frames: 2              # quick movements accepted
+stand_stable_frames: 1          # faster transition confirmation
+
+# --- Refractory ---
+refractory_frames: 2            # reduced cooldown between reps
+
+# --- Angle thresholds - Elbow (more forgiving) ---
+bent_deg: 130.0                 # relaxed starting position (was 120°)
+extended_deg: 145.0             # easier to reach extension (was 150°)
+
+# --- Kickback-specific considerations ---
+hinged_torso: true              # torso bent forward ~45–90°
+unilateral_capable: true        # can be done one arm at a time
+requires_stability: true        # core engagement needed
+
+# --- Wrist movement thresholds (more lenient) ---
+min_wrist_displacement_x: 15.0   # reduced from 20px
+max_wrist_displacement_x: 120.0  # increased tolerance
+wrist_start_threshold_x: -10.0   # more flexible starting position
+wrist_extended_threshold_x: 30.0 # easier extension requirement (was 40px)
+
+# --- Smoothing (less aggressive) ---
+ema_elbow_alpha: 0.5            # more responsive (was 0.4)
+ema_wrist_alpha: 0.5            # more responsive (was 0.4)
+
+# --- Form checks (more permissive) ---
+wrist_displacement_check: true    # verify adequate range of motion
+symmetry_check: false             # disabled – kickbacks often alternate arms
+symmetry_tolerance_deg: 50.0      # increased from 40° (more tolerant)
+
+# --- Kickback-specific form checks (relaxed) ---
+horizontal_extension_check: true  # verify wrist moves backward
+elbow_position_stable: true        # elbow should stay relatively fixed
+controlled_return_check: false     # disabled – allow faster returns
+max_return_speed: 200.0            # increased from 150 (allow faster movement)
+
+# --- Momentum/swing detection (more tolerant) ---
+detect_momentum: true              # flag excessive swinging
+max_acceleration_threshold: 250.0  # increased from 200 (more forgiving)
+
+# --- Asymmetry detection (very relaxed) ---
+max_angle_asymmetry: 60.0          # increased from 50° (alternating arms)
+max_wrist_asymmetry: 80.0          # increased from 60px
+max_timing_asymmetry_sec: 1.5      # increased from 1.0s
+
+# --- Debug ---
+debug: false
+
+# --- Per-arm tracking (critical for kickbacks) ---
+track_arms_separately: true        # arms often alternate
+allow_alternating_reps: true       # count left and right separately
+
+# --- Rep validation (more lenient) ---
+require_full_extension: false      # partial reps accepted
+require_full_contraction: false    # partial returns accepted
+min_rep_duration_sec: 0.3          # faster reps ok
+max_rep_duration_sec: 6.0          # slower reps ok
+
+# --- Elbow height stability (more forgiving) ---
+check_elbow_height: true
+max_elbow_vertical_drift: 40.0     # increased from 30px (more movement allowed)

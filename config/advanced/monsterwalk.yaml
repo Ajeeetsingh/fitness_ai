@@ -1,0 +1,54 @@
+# configs/exercises/monster_walk_athlete.yaml
+# Configuration for Monster Walk analyzer - ATHLETE VERSION
+
+# --- Step thresholds ---
+step_in_abs: 20.0            # Tighter control (was 25.0)
+step_out_abs: 45.0           # Wider step requirement (was 35.0)
+
+# --- Vertical motion detection ---
+min_drop_abs: 10.0           # Higher threshold to avoid false positives (was 8.0)
+drop_frac: 0.25              # Increased sensitivity (was 0.20)
+
+# --- Timing parameters ---
+calibration_seconds: 1.5
+min_distance_seconds: 0.5    # Slightly longer minimum (was 0.4)
+smoothing_window: 2
+ema_step_alpha: 0.3          # Less smoothing for precision (was 0.4)
+
+# --- Sequence logic ---
+sequence:
+  - step_out
+  - step_in
+allow_partial: false         # Athletes must complete full sequence (was true)
+
+# --- Detection confidence ---
+min_detection_conf: 0.35     # Higher confidence required (was 0.25)
+min_valid_points: 5          # More points required (was 4)
+
+# --- Hysteresis frame settings ---
+hyst_frames_down: 2          # More stable detection (was 1)
+hyst_frames_floor: 2         # More stable detection (was 1)
+hyst_frames_jump: 2          # More stable detection (was 1)
+
+# --- Refractory period ---
+refractory_frames: 5         # Longer cooldown (was 3)
+
+# --- Form control ---
+max_shoulder_sway_deg: 3.0   # Even stricter torso control (was 5.0)
+
+# --- Athlete-specific additions ---
+require_constant_tension: true    # Band must stay taut
+min_band_tension_indicator: 0.85  # Maintain tension throughout
+max_torso_lean: 15.0             # Upright posture required
+max_knee_valgus: 10.0            # Prevent knee caving inward
+hip_external_rotation_check: true # Ensure proper hip activation
+min_step_width_increase: 35.0    # Adequate band resistance
+controlled_tempo: true            # No rushing through reps
+max_step_speed: 2.0              # Controlled movement speed
+
+# --- Glute activation ---
+glute_activation_check: true     # Ensure proper muscle engagement
+max_hip_drop: 20.0              # Keep hips level
+
+# --- Debug ---
+debug: false

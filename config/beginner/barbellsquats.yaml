@@ -1,0 +1,31 @@
+# FILE: configs/beginner/barbellsquats.yaml
+#
+# BEGINNER: More forgiving, wider margins, and less required range of motion.
+# Base: barbellsquats.yaml
+
+side_strategy: min_of_both
+
+# Core thresholds (BEGINNER: Shallower squat)
+down_angle_deg: 100.0   # BEGINNER: Only needs to be a partial squat (above parallel)
+up_angle_deg: 160.0     # BEGINNER: Doesn't need to stand up fully
+
+# Margin for acceptance (BEGINNER: Very large margins)
+bottom_margin_deg: 25.0
+top_margin_deg: 25.0
+
+# Debounce/stability
+min_bottom_frames: 2
+stand_stable_frames: 1
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky legs)
+ema_knee_alpha: 0.2
+ema_hip_alpha: 0.2
+ema_elbow_alpha: 0.50
+
+# Form checks (BEGINNER: Allows for significant forward lean)
+stand_upright_max_tilt_deg: 35.0
+
+debug: true

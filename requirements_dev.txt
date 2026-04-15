@@ -1,0 +1,17 @@
+fastapi
+httpx
+uvicorn
+pydub
+opencv-python
+ultralytics
+tqdm
+python-multipart
+pyttsx3
+python-socketio
+websocket-client
+mediapipe
+dotenv
+gunicorn
+beautifulsoup4
+jsonschema
+pydantic_settings

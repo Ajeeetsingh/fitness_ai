@@ -1,0 +1,33 @@
+# FILE: configs/advanced/dumbellsqueezepress/default.yaml
+#
+# ADVANCED: Stricter, full ROM, tighter margins, and enforces a flat back.
+
+# Side view thresholds (ADVANCED: Full ROM, deeper press)
+up_elbow_angle: 160.0
+down_elbow_angle: 80.0
+up_margin: 10.0
+down_margin: 5.0
+
+# Front view thresholds (ADVANCED: Full ROM, deeper press)
+front_up_elbow_angle: 150.0
+front_down_elbow_angle: 65.0
+front_up_margin: 10.0
+front_down_margin: 5.0
+
+# Ratio for view detection
+view_split_ratio: 0.10
+
+# Form check (ADVANCED: Enforces a flatter back)
+torso_tilt_min: 85.0
+torso_tilt_max: 95.0
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause)
+min_down_frames: 3
+min_up_frames: 3
+refractory_frames: 6
+
+# ADVANCED: Less smoothing for more responsive tracking
+ema_elbow_alpha: 0.6
+ema_torso_alpha: 0.6
+
+debug: true

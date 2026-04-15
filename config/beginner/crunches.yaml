@@ -1,0 +1,20 @@
+# Configuration for crunches analyzer
+
+# Core threshold - SINGLE VALUE
+crunch_angle_peak: 85.0          # Below = crunched, Above = extended
+
+# Smoothing for display only
+ema_angle_alpha: 0.3             # EMA smoothing factor for display
+
+# FSM settings
+refractory_frames: 12            # Prevent double-counting flicker
+min_state_duration_sec: 0.3      # Minimum time in state to count as valid
+
+# Posture checks
+max_hip_shift: 30.0              # Max lateral hip movement (pixels)
+
+# Debug
+debug: false                     # Enable debug prints
+
+# Optional path to feedback.json (if not set analyzer looks in configs/exercises/feedback.json)
+feedback_path: null

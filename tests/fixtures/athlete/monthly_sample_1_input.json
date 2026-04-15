@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+    "sport": "marathon_running",
+    "phase": "build",
+    "weekly_sessions": 5,
+    "competition_date": "2026-05-01",
+    "focus": "aerobic_base_and_tempo_runs",
+    "text": "Four-week block focusing on progressive long runs and tempo work for an advanced marathon runner.",
+    "goal": "build_aerobic_base_and_improve_marathon_pace",
+    "minutes": 80,
+    "experience": "advanced",
+    "plan_type": "monthly",
+    "equipment": "gym",
+    "style": "endurance_focused",
+    "injuries": "",
+    "age": "32",
+    "body_type": "lean",
+    "location": "road_and_track",
+    "language": "en"
+}
+

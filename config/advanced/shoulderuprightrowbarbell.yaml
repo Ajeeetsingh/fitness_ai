@@ -1,0 +1,58 @@
+# Configuration for Shoulder Upright Row (Barbell) Analyzer - ATHLETE VERSION
+
+# --- Core thresholds ---
+min_elbow_angle: 0.0
+max_elbow_angle: 180.0
+rep_tolerance: 10.0          # Stricter tolerance (was 15.0)
+
+# --- EMA smoothing ---
+ema_alpha: 0.15              # Less smoothing for precision (was 0.2)
+
+# --- FSM settings ---
+refractory_frames: 10        # Longer cooldown (was 6)
+min_state_duration_sec: 0.35 # Longer state hold (was 0.2)
+
+# --- Posture & symmetry ---
+max_wrist_height_diff: 10.0  # Stricter symmetry (was 15.0)
+max_hip_shift: 20.0          # Better hip stability (was 30.0)
+symmetry_threshold_px: 12.0  # Tighter symmetry (was 20.0)
+symmetry_stable_px: 6.0      # More stable (was 10.0)
+
+# --- Barbell movement thresholds ---
+barbell_height_up_threshold: -70.0   # Higher pull required (was -50.0)
+barbell_height_down_threshold: 0.0   # More precise start (was -5.0)
+
+# --- Keypoint smoothing ---
+frame_smoothing: 2           # Less smoothing for precision (was 3)
+
+# --- Athlete-specific additions ---
+elbow_height_check: true     # Elbows should lead movement
+min_elbow_height_advantage: 30.0  # Elbows above wrists
+trap_activation_check: true  # Ensure proper trap engagement
+max_body_sway: 15.0         # Minimize momentum
+vertical_path_check: true    # Bar travels straight up
+max_path_deviation: 25.0    # Tight bar path control
+
+# --- Range of motion ---
+min_rom_vertical: 60.0      # Minimum vertical travel
+require_chin_height: true   # Bar should reach chin level
+max_pull_height: 90.0       # Don't over-pull
+
+# --- Tempo control ---
+min_concentric_duration_sec: 0.8  # Controlled lift
+min_eccentric_duration_sec: 1.2   # Slow descent
+max_descent_speed: 200.0         # Prevent dropping
+
+# --- Shoulder safety ---
+shoulder_impingement_check: true  # Monitor shoulder health
+max_internal_rotation: 20.0       # Prevent excessive rotation
+elbow_flare_check: true          # Monitor elbow position
+optimal_grip_width_check: true    # Ensure proper grip
+
+# --- Spinal alignment ---
+spine_neutral_check: true         # Maintain neutral spine
+max_lumbar_extension: 10.0       # Prevent hyperextension
+max_cervical_extension: 15.0     # Keep neck neutral
+
+# --- Debug ---
+debug: false

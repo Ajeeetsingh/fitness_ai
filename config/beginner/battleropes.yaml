@@ -1,0 +1,25 @@
+# FILE: configs/beginner/battleropes.yaml
+#
+# BEGINNER: Forgiving, smaller waves (less ROM), and more smoothing.
+# Base: battleropes.yaml
+
+# Rep counting metric (BEGINNER: Smaller range of motion)
+# The "up" and "down" thresholds are closer together.
+up_y_thr: 0.625   # Doesn't have to lift as high (smaller Y value is higher)
+down_y_thr: 0.628 # Doesn't have to slam as low (larger Y value is lower)
+
+# Debounce/stability
+min_up_frames: 2
+min_down_frames: 2
+
+# Refractory
+refractory_frames: 10
+
+# Smoothing (BEGINNER: More smoothing for shaky/uneven movements)
+ema_wrist_y_alpha: 0.15
+ema_elbow_alpha: 0.15
+
+# Form checks (BEGINNER: More forgiving elbow bend)
+elbow_angle_ok: 100.0
+
+debug: true

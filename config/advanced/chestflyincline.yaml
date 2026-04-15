@@ -1,0 +1,26 @@
+# configs/exercises/chest_fly/incline.yaml
+
+# The wrist distance might be slightly different on an incline bench
+up_wrist_dist_norm: 1.7
+down_wrist_dist_norm: 2.4 # Adjusted for incline, might be a bit wider at the bottom
+
+# Margin for acceptance (for variable metrics)
+up_margin_norm: 0.1
+down_margin_norm: 0.1
+
+# Debounce/stability
+min_up_frames: 2
+min_down_frames: 2
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing
+ema_wrist_dist_alpha: 0.25
+ema_elbow_alpha: 0.25
+
+# Form checks
+elbow_angle_min: 160.0
+elbow_angle_max: 180.0
+
+debug: true

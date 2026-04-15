@@ -1,0 +1,23 @@
+# configs/exercises/legextension.yaml
+
+# Configuration for Leg Extension analyzer - structured like FrontRaiseDumbbell.
+
+# --- Angle thresholds ---
+extended_deg: 160.0        # above this = extended
+flexed_deg: 140.0          # below this = flexed
+
+# --- FSM frame requirements ---
+min_extended_frames: 3
+min_flexed_frames: 3
+refractory_frames: 8
+
+# --- Smoothing ---
+ema_knee_alpha: 0.3
+
+# --- Form validation ---
+max_knee_lateral_diff: 40.0      # px - knee separation tolerance
+max_knee_angle_asymmetry: 30.0   # degrees - angle difference tolerance
+max_back_lean: 35.0              # degrees - torso lean tolerance
+
+# --- Debug ---
+debug: false

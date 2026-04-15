@@ -1,0 +1,23 @@
+# FILE: configs/beginner/neutralgrippulldown/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more torso lean.
+
+# REP COUNTING IS BASED ON SHOULDER ANGLE
+up_shoulder_angle: 130.0    # BEGINNER: Doesn't need to extend as high
+down_shoulder_angle: 85.0     # BEGINNER: Doesn't need to pull as low
+up_margin: 25.0
+down_margin: 25.0
+
+# FORM CHECK IS BASED ON TORSO LEAN
+min_torso_angle: 65.0     # BEGINNER: Allows for more lean-back
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_shoulder_alpha: 0.2
+ema_torso_alpha: 0.2
+
+debug: true

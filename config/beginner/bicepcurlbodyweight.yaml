@@ -1,0 +1,67 @@
+# Bicep Curl (Bodyweight Variation)
+# Most relaxed configuration; minimal checks and no momentum detection.
+
+ema_elbow_alpha: 0.35
+ema_wrist_alpha: 0.35
+ema_forearm_alpha: 0.35
+ema_shoulder_alpha: 0.3
+
+variation: bodyweight
+
+min_hold_frames: 2
+stand_stable_frames: 2
+refractory_frames: 5
+
+extended_deg: 140.0
+contracted_deg: 50.0
+
+bilateral_movement: true
+track_arms_separately: false
+allow_alternating_reps: false
+symmetry_check: true
+symmetry_tolerance_deg: 20.0
+max_angle_asymmetry: 30.0
+max_forearm_asymmetry: 35.0
+max_timing_asymmetry_sec: 0.5
+
+forearm_displacement_check: true
+max_forearm_displacement_y: -150.0
+min_forearm_displacement_y: -30.0
+min_rom_pixels: 50.0
+min_rom_deg: 100.0
+optimal_rom_deg: 130.0
+extended_position_y: 0.0
+contracted_position_y: -80.0
+
+shoulder_drift_tolerance: 100.0
+shoulder_stability_check: false
+check_elbow_position: false
+max_elbow_forward_drift: 80.0
+max_shoulder_drift_velocity: 50.0
+
+vertical_motion_check: false
+elbow_position_stable: false
+requires_stability: false
+upright_torso: false
+controlled_eccentric_check: false
+max_eccentric_speed: 200.0
+
+detect_momentum: false
+max_acceleration_threshold: 250.0
+detect_body_english: false
+
+require_full_extension: false
+require_full_contraction: false
+min_rep_duration_sec: 0.5
+max_rep_duration_sec: 10.0
+
+check_tempo: false
+min_concentric_duration: 0.5
+min_eccentric_duration: 0.5
+max_pause_at_top: 2.0
+
+validate_starting_position: false
+starting_angle_range: [160.0, 180.0]
+starting_forearm_range: [-30.0, 30.0]
+
+debug: false

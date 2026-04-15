@@ -1,0 +1,26 @@
+# FILE: configs/beginner/triceppushdown/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more body lean.
+
+# Core thresholds (BEGINNER: Smaller range of motion)
+up_elbow_deg: 100.0   # Doesn't need to curl as high
+down_elbow_deg: 140.0 # Doesn't need to extend as far
+
+# Margin for acceptance (BEGINNER: Large margins)
+up_angle_margin: 20.0
+down_angle_margin: 20.0
+
+# Debounce/stability
+min_up_frames: 2
+min_down_frames: 2
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_elbow_alpha: 0.15
+
+# Form checks
+shoulder_lean_max: 40.0   # Allows for more body lean
+
+debug: true

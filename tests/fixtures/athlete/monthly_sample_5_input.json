@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "swimming",
+  "phase": "build",
+  "weekly_sessions": 6,
+  "competition_date": "2026-04-25",
+  "focus": "speed_endurance_and_stroke_efficiency",
+  "text": "Four-week block for sprint swimmer. Mix of speed sets, lactate tolerance, and light dryland strength.",
+  "goal": "improve_sprint_speed_and_turns",
+  "minutes": 70,
+  "experience": "advanced",
+  "plan_type": "monthly",
+  "equipment": "gym",
+  "style": "mixed",
+  "injuries": "",
+  "age": "21",
+  "body_type": "athletic",
+  "location": "pool_and_gym",
+  "language": "en"
+}
+

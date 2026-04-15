@@ -1,0 +1,70 @@
+# Hamstring Curl (Dumbbell Variation - Athlete)
+# Controlled unilateral work with strict form requirements.
+
+ema_knee_alpha: 0.18
+ema_ankle_alpha: 0.20
+ema_lower_leg_alpha: 0.20
+ema_hip_alpha: 0.18
+
+variation: dumbbell
+
+extended_deg: 160.0
+contracted_deg: 65.0
+min_rom_deg: 85.0
+optimal_rom_deg: 105.0
+
+extended_threshold: 160.0
+contracted_threshold: 65.0
+min_rom_pixels: 45.0
+min_knee_rom_deg: 85.0
+refractory_frames: 12
+init_frames_wait: 4
+mid_range_angle_threshold: 110.0
+
+bilateral_movement: false
+track_legs_separately: true
+allow_alternating_reps: true
+symmetry_check: true
+symmetry_tolerance_deg: 15.0
+max_angle_asymmetry: 18.0
+max_lower_leg_asymmetry: 25.0
+max_timing_asymmetry_sec: 0.3
+
+lower_leg_displacement_check: true
+max_lower_leg_displacement_y: 280.0
+min_lower_leg_displacement_y: 45.0
+extended_position_y: 0.0
+contracted_position_y: 120.0
+
+hip_drift_tolerance: 80.0
+hip_stability_check: true
+check_knee_position: true
+max_knee_forward_drift: 50.0
+max_hip_drift_velocity: 40.0
+
+vertical_motion_check: true
+knee_position_stable: true
+requires_stability: true
+body_alignment_check: true
+controlled_eccentric_check: true
+max_eccentric_speed: 180.0
+
+detect_momentum: true
+max_acceleration_threshold: 250.0
+detect_hip_lifting: true
+
+require_full_extension: true
+require_full_contraction: true
+validate_starting_position: true
+min_rep_duration_sec: 1.5
+max_rep_duration_sec: 10.0
+
+check_tempo: true
+min_concentric_duration: 0.8
+min_eccentric_duration: 1.2
+max_pause_at_top: 1.5
+
+starting_angle_range: [155.0, 175.0]
+starting_lower_leg_range: [0.0, 20.0]
+
+debug: false

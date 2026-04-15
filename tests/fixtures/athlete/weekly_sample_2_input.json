@@ -1,0 +1,22 @@
+{
+    "population": "competitive_athlete",
+    "sport": "marathon_running",
+    "phase": "build",
+    "weekly_sessions": 6,
+    "competition_date": "2026-03-30",
+    "focus": "endurance_and_lactate_threshold",
+    "text": "High-volume week for marathon prep. Include one long run and one tempo workout.",
+    "goal": "improve_aerobic_capacity_and_race_pace",
+    "minutes": 90,
+    "experience": "advanced",
+    "plan_type": "weekly",
+    "equipment": "gym",
+    "style": "endurance_focused",
+    "injuries": "",
+    "age": "29",
+    "body_type": "lean",
+    "location": "outdoor_track",
+    "language": "en"
+}
+
+

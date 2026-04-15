@@ -1,0 +1,27 @@
+# FILE: configs/advanced/chest_fly_flat.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces straight-arm form.
+# Base: flat.yaml
+
+# Rep counting metric (ADVANCED: Full range of motion)
+up_wrist_dist_norm: 1.4     # Must bring hands very close
+down_wrist_dist_norm: 2.8   # Must open arms wide for a full stretch
+up_margin_norm: 0.15        # ADVANCED: Tighter margin
+down_margin_norm: 0.15      # ADVANCED: Tighter margin
+
+# Debounce/stability (ADVANCED: Enforces a slight pause)
+min_up_frames: 3
+min_down_frames: 3
+
+# Refractory
+refractory_frames: 8
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_wrist_dist_alpha: 0.5
+ema_elbow_alpha: 0.5
+
+# Form checks (ADVANCED: Enforces very straight arms)
+elbow_angle_min: 165.0
+elbow_angle_max: 180.0
+
+debug: true

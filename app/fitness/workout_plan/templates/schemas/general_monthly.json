@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "General Monthly Workout Plan",
+  "type": "object",
+  "required": ["provided_information", "summary", "metadata"],
+  "properties": {
+    "provided_information": {
+      "type": "object",
+      "required": ["goal", "minutes", "experience", "equipment_list"],
+      "properties": {
+        "goal": {"type": "string"},
+        "minutes": {"type": "integer", "minimum": 5},
+        "experience": {"type": "string"},
+        "equipment_list": {"type": "array"}
+      }
+    },
+    "summary": {"type": "string"},
+    "week_1": {"type": "object"},
+    "week_2": {"type": "object"},
+    "week_3": {"type": "object"},
+    "week_4": {"type": "object"},
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "auto_filled_fields": {"type": "array", "maxItems": 6}
+      }
+    }
+  }
+}
+

@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "powerlifting",
+  "phase": "build",
+  "weekly_sessions": 4,
+  "competition_date": "2026-03-05",
+  "focus": "hypertrophy_and_technical_volume",
+  "text": "Hypertrophy block leading into strength phase. Higher volume squats, bench, deadlift, plus accessories.",
+  "goal": "increase_muscle_mass_while_refining_technique",
+  "minutes": 75,
+  "experience": "advanced",
+  "plan_type": "monthly",
+  "equipment": "gym",
+  "style": "strength_focused",
+  "injuries": "history_of_low_back_strain",
+  "age": "31",
+  "body_type": "muscular",
+  "location": "gym",
+  "language": "en"
+}
+

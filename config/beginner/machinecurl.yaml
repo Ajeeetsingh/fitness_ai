@@ -1,0 +1,59 @@
+# configs/exercises/machinebicepcurl.yaml
+
+# Configuration for Machine Bicep Curl analyzer
+
+# --- Debounce / stability ---
+min_hold_frames: 1              # faster state transition
+stand_stable_frames: 1          # less delay before confirming stability
+
+# --- Refractory ---
+refractory_frames: 2            # quicker next rep recognition
+
+# --- Angle thresholds - Elbow ---
+curled_deg: 55.0                # slightly more forgiving at top
+extended_deg: 150.0             # allows early rep detection on return
+
+# --- Machine-specific considerations ---
+fixed_shoulder_position: true
+bilateral_movement: true
+
+# --- Wrist movement thresholds ---
+min_wrist_displacement: 40.0     # easier to count shallow reps
+max_wrist_displacement: 160.0    # allows larger variations
+wrist_start_threshold: -60.0     # tolerate start position offset
+wrist_peak_threshold: 50.0       # count peak sooner
+
+# --- Smoothing ---
+ema_elbow_alpha: 0.45            # smoother noise rejection but still responsive
+ema_wrist_alpha: 0.45
+
+# --- Form checks ---
+wrist_displacement_check: true
+symmetry_check: true
+symmetry_tolerance_deg: 35.0     # tolerance for small angle differences
+
+# --- Machine curl-specific form checks ---
+consistent_path_check: true
+controlled_eccentric_check: false
+max_eccentric_speed: 220.0       # doesn’t fail fast reps
+
+# --- Asymmetry detection ---
+max_angle_asymmetry: 45.0        # more forgiving on elbow angle diff
+max_wrist_asymmetry: 60.0        # tolerance for pixel displacement diff
+max_timing_asymmetry_sec: 0.9    # small desync allowed between arms
+
+# --- Debug ---
+debug: false
+
+# --- Adaptive calibration (optional) ---
+use_adaptive_thresholds: false
+calibration_frames: 30
+
+# --- Per-arm tracking ---
+track_arms_separately: true
+
+# --- Rep validation (lenient timing) ---
+require_full_extension: false
+require_full_contraction: false
+min_rep_duration_sec: 1.2        # allows slightly faster reps
+max_rep_duration_sec: 12.0       # doesn’t invalidate slow reps

@@ -1,0 +1,30 @@
+# FILE: configs/advanced/clappingpushups.yaml
+#
+# ADVANCED: Stricter, tighter margins, full ROM, and enforces a fast clap.
+# Base: clappingpushups.yaml
+
+# Core thresholds (ADVANCED: Deeper push-up, more explosive extension)
+down_elbow_angle_deg: 85.0
+up_elbow_angle_deg: 150.0
+
+# Margin for acceptance (ADVANCED: Very tight margins)
+bottom_margin_deg: 5.0
+top_margin_deg: 5.0
+
+# Debounce/stability (ADVANCED: Enforce pause at bottom, less time for clap)
+min_bottom_frames: 3
+stand_stable_frames: 2
+clapping_margin_frames: 8
+
+# Refractory
+refractory_frames: 8
+
+# Smoothing (ADVANCED: Less smoothing for more responsive, fast tracking)
+ema_elbow_alpha: 0.7
+ema_shoulder_alpha: 0.7
+
+# Form checks (ADVANCED: Must be a very close, clean clap)
+over_extension_max_angle_deg: 20.0
+max_clap_distance_px: 30.0
+
+debug: true

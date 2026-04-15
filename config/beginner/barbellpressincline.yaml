@@ -1,0 +1,26 @@
+# FILE: configs/beginner/barbellpress_incline.yaml
+#
+# BEGINNER: More forgiving, wider margins, and less required range of motion.
+# Base: incline.yaml
+
+up_elbow_angle: 150.0    # BEGINNER: Reduced extension target (doesn't need to fully lock out)
+down_elbow_angle: 100.0  # BEGINNER: Shallower press target (doesn't need to go as deep)
+up_margin: 25.0          # BEGINNER: Very large margin for 'up' state
+down_margin: 15.0        # BEGINNER: Large margin for 'down' state
+
+# Form checks for an INCLINE bench (Beginner - wide acceptable angle)
+shoulder_angle_min: 160.0
+shoulder_angle_max: 180.0
+shoulder_hip_min_angle: 125.0 # Body is angled up (e.g., 25-55 degree incline)
+shoulder_hip_max_angle: 155.0
+
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 6
+
+# BEGINNER: More smoothing (lower alpha) to reduce jitter
+ema_elbow_alpha: 0.3
+ema_shoulder_angle_alpha: 0.3
+ema_shoulder_hip_angle_alpha: 0.3
+
+debug: true

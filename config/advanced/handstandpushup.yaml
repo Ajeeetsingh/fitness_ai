@@ -1,0 +1,23 @@
+# FILE: configs/advanced/handstandpushup/default.yaml
+#
+# ADVANCED: Stricter, full ROM, and enforces a straight body line.
+
+# REP COUNTING IS BASED ON ELBOW ANGLE
+up_elbow_angle: 160.0     # ADVANCED: Must extend arms fully
+down_elbow_angle: 100.0   # ADVANCED: Must go deeper
+up_margin: 5.0
+down_margin: 10.0
+
+# FORM CHECK IS BASED ON BODY LINE (SHOULDER-HIP-ANKLE)
+min_body_line_angle: 160.0  # ADVANCED: Enforces a very straight body
+
+# Debounce / hysteresis (ADVANCED: Enforces a slight pause)
+min_down_frames: 3
+min_up_frames: 3
+refractory_frames: 6
+
+# Smoothing (ADVANCED: Less smoothing for more responsive tracking)
+ema_elbow_alpha: 0.6
+ema_body_line_alpha: 0.6
+
+debug: true

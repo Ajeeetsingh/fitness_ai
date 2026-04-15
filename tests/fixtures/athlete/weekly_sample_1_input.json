@@ -1,0 +1,21 @@
+{
+  "population": "competitive_athlete",
+  "sport": "football",
+  "phase": "build",
+  "weekly_sessions": 5,
+  "competition_date": "2026-02-15",
+  "focus": "strength_and_power",
+  "text": "Pre-season build phase for a competitive football player. Needs more lower-body strength and repeat sprint ability.",
+  "goal": "increase_max_strength_and_acceleration",
+  "minutes": 75,
+  "experience": "advanced",
+  "plan_type": "weekly",
+  "equipment": "gym",
+  "style": "mixed",
+  "injuries": "",
+  "age": "24",
+  "body_type": "athletic",
+  "location": "gym",
+  "language": "en"
+}
+

@@ -1,0 +1,23 @@
+# FILE: configs/beginner/frontraisedumbbell/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and allows for more elbow bend.
+
+# REP COUNTING IS BASED ON SHOULDER ANGLE
+up_shoulder_angle: 80.0     # BEGINNER: Doesn't need to raise to full 90 degrees
+down_shoulder_angle: 30.0   # BEGINNER: Doesn't need to lower all the way
+up_margin: 25.0
+down_margin: 25.0
+
+# FORM CHECK IS BASED ON ELBOW ANGLE
+min_elbow_angle: 130.0      # BEGINNER: Allows for more elbow bend
+
+# Debounce / hysteresis (frames)
+min_down_frames: 2
+min_up_frames: 2
+refractory_frames: 5
+
+# Smoothing (BEGINNER: More smoothing for shaky movements)
+ema_shoulder_alpha: 0.3
+ema_elbow_alpha: 0.3
+
+debug: true

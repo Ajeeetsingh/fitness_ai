@@ -1,0 +1,33 @@
+# FILE: configs/beginner/seatedchestpress/default.yaml
+#
+# BEGINNER: More forgiving, smaller ROM, and larger margins.
+
+# Strategy
+side_strategy: "min_of_both"
+
+# Core thresholds (BEGINNER: Smaller range of motion)
+extended_elbow_angle_deg: 150.0
+contracted_elbow_angle_deg: 120.0
+
+# Margin for acceptance (BEGINNER: Large margins)
+extended_margin_deg: 25.0
+contracted_margin_deg: 25.0
+
+# Front view thresholds (BEGINNER: Smaller range of motion)
+front_contracted_dist_ratio: 2.05
+front_extended_dist_ratio: 2.30
+
+# Debounce/stability
+min_extended_frames: 2
+contracted_stable_frames: 1
+
+# Refractory
+refractory_frames: 6
+
+# Smoothing (BEGINNER: More smoothing)
+ema_elbow_alpha: 0.15
+
+# Form checks (BEGINNER: More forgiving)
+over_extension_max_deg: 180.0
+
+debug: True
