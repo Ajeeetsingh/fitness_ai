@@ -142,7 +142,7 @@ def save_failure_sample(
     os.makedirs(failure_dir, exist_ok=True)
     
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    filename = f"fail_{request_id}_{timestamp}.txt"  # Changed to .txt as specified
+    filename = f"fail_{request_id}_{timestamp}.json"
     filepath = os.path.join(failure_dir, filename)
     
     # Extract user input from context
@@ -152,8 +152,10 @@ def save_failure_sample(
         "request_id": request_id,
         "timestamp_utc": datetime.utcnow().isoformat(),
         "user_input": user_input,
+        "raw_text": raw_text[:10000],
         "raw_llm_output": raw_text[:10000],  # Limit to 10k chars
         "raw_llm_output_length": len(raw_text),
+        "error": error,
         "parse_error": error,
         "context": context or {}
     }

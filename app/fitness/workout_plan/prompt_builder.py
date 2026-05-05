@@ -130,12 +130,25 @@ def build_system_prompt(mode: str = "general") -> str:
     Returns:
         str: Exact system prompt as specified
     """
+    mode_l = (mode or "general").lower()
+    if mode_l == "athlete":
+        persona = (
+            "SYSTEM: You are a safety-conscious plan-generation assistant focused on athletic performance for an athlete. "
+            "RETURN EXACTLY ONE valid JSON object and NOTHING else. "
+        )
+    else:
+        persona = (
+            "SYSTEM: You are a safety-conscious plan-generation assistant and fitness coach. "
+            "RETURN EXACTLY ONE valid JSON object and NOTHING else. "
+        )
+
     return (
-        "SYSTEM: You are a plan-generation assistant. RETURN EXACTLY ONE valid JSON object and NOTHING else. "
-        "The top-level keys MUST be: provided_information, summary, plan_meta, metadata, and either day_1 (daily) "
-        "OR days (weekly) OR weeks (monthly). Do NOT include prose, extra wrapper keys (e.g., plan_data, payload), "
-        "or markdown. Use null for unknown values. If you cannot populate a required field, set it to null. "
-        "Arrays should be reasonably sized (max 6 items per exercise list). Output must be parseable by a strict JSON parser."
+        persona
+        + "Your output must be a single JSON object starting with '{' and ending with '}'. "
+        + "The top-level keys MUST be: provided_information, summary, plan_meta, metadata, and either day_1 (daily) "
+        + "OR days (weekly) OR weeks (monthly). Do NOT include prose, extra wrapper keys (e.g., plan_data, payload), "
+        + "or markdown. Use null for unknown values. If you cannot populate a required field, set it to null. "
+        + "Arrays should be reasonably sized (max 6 items per exercise list). Output must be parseable by a strict JSON parser."
     )
 
 
@@ -723,7 +736,7 @@ Input provided_information (JSON): {pi_json}
 
 CRITICAL INSTRUCTIONS - READ CAREFULLY:
 
-1) RETURN EXACTLY ONE valid JSON OBJECT and NOTHING ELSE (no prose, no code fences).
+1) RETURN EXACTLY ONE JSON OBJECT and NOTHING ELSE (no prose, no code fences).
 
 2) Top-level keys MUST be exactly: provided_information, summary, plan_meta, {days_key}, metadata.
 
@@ -746,7 +759,11 @@ CRITICAL INSTRUCTIONS - READ CAREFULLY:
 
 8) CRITICAL - DO NOT USE PLACEHOLDERS: DO NOT use placeholders like {{...}}, {{... similar pattern...}}, or any variation of ellipsis in JSON. You MUST generate complete, valid JSON structures for ALL {weekly_sessions} days. Each day must be a complete JSON object with warmup, main_session, and cooldown sections. Any output containing {{...}} or similar placeholders will be considered invalid and will fail parsing.
 
-9) Use the following exact example as the required output shape (copy this shape exactly; we will validate day count and keys):
+9) Keep arrays short: max 6 exercises per section (especially main_session).
+
+10) Use conservative, time-feasible durations that add up correctly for the session length.
+
+11) Use the following exact example as the required output shape (copy this shape exactly; we will validate day count and keys):
 
 {example_text}
 

@@ -439,3 +439,15 @@ def handle_generate_plan_athlete(req):
             "The router now uses handle_generate_plan_athlete_refactored in service_refactored.py."
         ),
     )
+
+
+def handle_generate_plan_athlete_pipeline(req):
+    """
+    Compatibility wrapper for tests and older imports.
+
+    The active API routes call into `service_refactored.py`, but some tests
+    (and potentially external code) still import this symbol.
+    """
+    from app.fitness.workout_plan.service_refactored import handle_generate_plan_athlete_refactored
+
+    return handle_generate_plan_athlete_refactored(req)

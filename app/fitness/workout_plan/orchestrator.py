@@ -22,6 +22,7 @@ from typing import Dict, Any, Optional, Tuple, List
 import httpx
 
 from app.core.config import settings
+from app.core.llm import generate_text
 from app.core.log import logger
 from app.fitness.workout_plan.prompt_builder import build_system_prompt, build_user_prompt
 from app.fitness.workout_plan.normalizers import try_unwrap_json, parse_provided_information_text, normalize_request_input
@@ -29,7 +30,6 @@ from app.fitness.workout_plan import debug_logger as dbg
 
 
 # LLM Configuration
-LLM_BASE_URL = settings.LLM_BASE_URL
 LLM_TIMEOUT = settings.LLM_TIMEOUT
 
 # Token and timeout defaults by plan type
@@ -1634,14 +1634,6 @@ def _call_llm_single(
     full_prompt = f"{system_prompt}\n\n{user_prompt}"
     
     # Prepare LLM payload
-    payload = {
-        "query": full_prompt,
-        "max_new_tokens": max_tokens,
-    }
-    
-    # Call LLM
-    url = LLM_BASE_URL
-    headers = {"Content-Type": "application/json"}
     http_timeout = httpx.Timeout(connect=5.0, read=timeout, write=15.0, pool=timeout)
     
     # Retry loop for network errors
@@ -1649,27 +1641,11 @@ def _call_llm_single(
     for attempt in range(1, max_retries + 1):
         t0 = time.perf_counter()
         try:
-            with httpx.Client(timeout=http_timeout) as client:
-                response = client.post(url, headers=headers, json=payload)
-            
-            response.raise_for_status()
-            
-            # Extract text from response
-            if response.headers.get("content-type", "").startswith("application/json"):
-                data = response.json()
-                # Try common response keys
-                for key in ("text", "response", "output", "answer", "content"):
-                    if key in data and isinstance(data[key], str):
-                        raw_text = data[key]
-                        break
-                else:
-                    # Try choices format (OpenAI-style)
-                    if "choices" in data and len(data["choices"]) > 0:
-                        raw_text = data["choices"][0].get("message", {}).get("content", "")
-                    else:
-                        raw_text = json.dumps(data)
-            else:
-                raw_text = response.text
+            raw_text = generate_text(
+                prompt=full_prompt,
+                max_new_tokens=int(max_tokens),
+                timeout_s=float(timeout),
+            )
             
             latency = time.perf_counter() - t0
             logger.info(f"[{request_id}:{chunk_id}] LLM call succeeded: {len(raw_text)} chars, {latency:.2f}s")

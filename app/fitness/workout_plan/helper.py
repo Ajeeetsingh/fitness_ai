@@ -7,11 +7,12 @@ from datetime import datetime, timezone
 import httpx
 
 from app.core.config import settings
+from app.core.llm import generate_text
 from app.core.log import logger
 from app.fitness.workout_plan.exercise_database import format_exercises_for_prompt
 
 LOG_CSV_PATH, ATHLETE_DIR, STORAGE_DIR = settings.LOG_CSV_PATH, settings.ATHLETE_DIR, settings.STORAGE_DIR
-LLM_SYSTEM, LLM_BASE_URL, LLM_TIMEOUT = settings.LLM_SYSTEM, settings.LLM_BASE_URL, settings.LLM_TIMEOUT
+LLM_SYSTEM, LLM_TIMEOUT = settings.LLM_SYSTEM, settings.LLM_TIMEOUT
 
 
 # ============================================================================
@@ -86,9 +87,6 @@ def get_max_tokens_for_plan_phase1(plan_type: str, weekly_sessions: int = 5) -> 
 # LLM Helper
 # -----------------------------
 def call_llm(payload: dict) -> Optional[str]:
-    url = LLM_BASE_URL
-    headers = {"Content-Type": "application/json"}
-    timeout = httpx.Timeout(connect=5.0, read=LLM_TIMEOUT, write=15.0, pool=LLM_TIMEOUT)
     # Use max_tokens if provided, otherwise use max_new_tokens, default to 1280
     if "max_tokens" in payload:
         max_tokens_value = payload["max_tokens"]
@@ -102,30 +100,11 @@ def call_llm(payload: dict) -> Optional[str]:
     attempts = 3
     for attempt in range(1, attempts + 1):
         try:
-            with httpx.Client(timeout=timeout) as client:
-                r = client.post(url, headers=headers, json=payload)
-            if r.status_code == 422:
-                try:
-                    print(f"[WARN] LLM 422 detail: {r.json()}")
-                except Exception:
-                    print(f"[WARN] LLM 422 raw: {r.text}")
-                return None
-            r.raise_for_status()
-            ctype = r.headers.get("content-type", "")
-            data = r.json() if "application/json" in ctype else r.text
-            if isinstance(data, dict):
-                for k in ("text", "response", "output", "answer"):
-                    v = data.get(k)
-                    if isinstance(v, str):
-                        return v
-                try:
-                    return data["choices"][0]["message"]["content"]
-                except Exception:
-                    pass
-            if isinstance(data, str):
-                return data.strip()
-            print("[WARN] LLM returned unexpected shape")
-            return None
+            return generate_text(
+                prompt=payload["query"],
+                max_new_tokens=int(payload["max_new_tokens"]),
+                timeout_s=float(LLM_TIMEOUT),
+            )
         except (httpx.ReadTimeout, httpx.ConnectTimeout, httpx.ConnectError) as e:
             print(f"[WARN] LLM call failed: {e} (attempt {attempt}/{attempts})")
             if attempt == attempts:

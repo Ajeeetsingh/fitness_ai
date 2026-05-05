@@ -10,11 +10,11 @@ from typing import Dict, Any, Optional, Tuple
 import httpx
 
 from app.core.config import settings
+from app.core.llm import generate_text
 from app.core.log import logger
 
 
 # LLM Configuration (use smaller/cheaper model for repair)
-LLM_BASE_URL = settings.LLM_BASE_URL
 REPAIR_TIMEOUT = 20  # Shorter timeout for repair
 REPAIR_MAX_TOKENS = 2000  # Smaller token budget
 
@@ -128,44 +128,13 @@ def _call_repair_llm(prompt: str, request_id: str) -> str:
     Raises:
         Exception: On LLM call failure
     """
-    url = LLM_BASE_URL
-    headers = {"Content-Type": "application/json"}
-    
-    payload = {
-        "query": prompt,
-        "max_new_tokens": REPAIR_MAX_TOKENS,
-    }
-    
-    http_timeout = httpx.Timeout(
-        connect=5.0,
-        read=REPAIR_TIMEOUT,
-        write=15.0,
-        pool=REPAIR_TIMEOUT
-    )
-    
     t0 = time.perf_counter()
     try:
-        with httpx.Client(timeout=http_timeout) as client:
-            response = client.post(url, headers=headers, json=payload)
-        
-        response.raise_for_status()
-        
-        # Extract text from response
-        if response.headers.get("content-type", "").startswith("application/json"):
-            data = response.json()
-            # Try common response keys
-            for key in ("text", "response", "output", "answer", "content"):
-                if key in data and isinstance(data[key], str):
-                    raw_text = data[key]
-                    break
-            else:
-                # Try choices format (OpenAI-style)
-                if "choices" in data and len(data["choices"]) > 0:
-                    raw_text = data["choices"][0].get("message", {}).get("content", "")
-                else:
-                    raw_text = json.dumps(data)
-        else:
-            raw_text = response.text
+        raw_text = generate_text(
+            prompt=prompt,
+            max_new_tokens=int(REPAIR_MAX_TOKENS),
+            timeout_s=float(REPAIR_TIMEOUT),
+        )
         
         latency = time.perf_counter() - t0
         logger.info(f"[{request_id}:repair] LLM call succeeded: {len(raw_text)} chars, {latency:.2f}s")
